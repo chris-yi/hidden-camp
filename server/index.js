@@ -39,7 +39,7 @@ passport.use( new Auth0Strategy({
     const userData = profile._json;
     db.find_user([userData.identities[0].user_id]).then( user => {
         if(user[0]) {
-            return done(null, user[0].id)
+            return done(null, user[0].user_id)
         } else {
             db.create_user([
                 userData.name, 
@@ -47,7 +47,7 @@ passport.use( new Auth0Strategy({
                 userData.picture,
                 userData.identities[0].user_id
             ]).then( user => {
-                return done(null, user[0].id)
+                return done(null, user[0].user_id)
             })
         }
     })
@@ -58,21 +58,22 @@ passport.serializeUser( function(id, done) {
     done(null, id)
 })
 passport.deserializeUser( function(id, done) {
-    done(null, id)
+    app.get("db").find_session_user(id).then(user => {
+        done(null, user[0]);
+    })
 })
 
 
 // Endpoints
 app.get("/auth", passport.authenticate("auth0"));
-app.get("/auth/callback", passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/",
-    failureRedirect: "http://www.google.com"
+app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: 'http://localhost:3000/'
 }))
 app.get("/auth/me", (req, res) => {
-    if(req.res) {
+    if(req.user) {
         return res.status(200).send(req.user);
     } else {
-        return res.status(401).send()
+        return res.status(401).send("Need to log in.")
     }
 })
 
