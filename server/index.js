@@ -10,6 +10,7 @@ const massive = require("massive");
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+
 // Configure Session
 app.use(session({
     secret: process.env.SECRET,
@@ -20,6 +21,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+//setup massive
+massive(process.env.CONNECTION_STRING).then( (db) => {
+    app.set("db", db);
+})
+
+
 
 // Configure Strategies
 passport.use( new Auth0Strategy({
@@ -28,10 +35,23 @@ passport.use( new Auth0Strategy({
     clientSecret: process.env.AUTH_CLIENTSECRET,
     callbackURL: process.env.AUTH_CALLBACK
 }, function(accessToken, refreshToken, extraParams, profile, done) {
-        done(null, profile);
-      }
-    )
-  );
+    const db = app.get("db");
+    const userData = profile._json;
+    db.find_user([userData.identities[0].user_id]).then( user => {
+        if(user[0]) {
+            return done(null, user[0].id)
+        } else {
+            db.create_user([
+                userData.name, 
+                userData.email,
+                userData.picture,
+                userData.identities[0].user_id
+            ]).then( user => {
+                return done(null, user[0].id)
+            })
+        }
+    })
+}))
 
 
 passport.serializeUser( function(id, done) {
@@ -46,15 +66,15 @@ passport.deserializeUser( function(id, done) {
 app.get("/auth", passport.authenticate("auth0"));
 app.get("/auth/callback", passport.authenticate("auth0", {
     successRedirect: "http://localhost:3000/",
-    failureRedirect: "/auth"
+    failureRedirect: "http://www.google.com"
 }))
-
-// app.get("/auth/me", function(req, res) {
-//     if(!req.user) {
-//         return res.status(401).send("No user logged in.")
-//     }
-//     return res.status(200).send(req.user);
-// })
+app.get("/auth/me", (req, res) => {
+    if(req.res) {
+        return res.status(200).send(req.user);
+    } else {
+        return res.status(401).send()
+    }
+})
 
 
 
