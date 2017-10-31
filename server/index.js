@@ -6,6 +6,7 @@ const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const massive = require("massive");
+const get_results = require("./controllers/get_results")
 
 const app = express();
 app.use(bodyParser.json());
@@ -76,6 +77,14 @@ app.get("/auth/me", (req, res) => {
         return res.status(401).send("Need to log in.")
     }
 })
+
+// ****** Get listing results ******** //
+// GET ALL LISTINGS
+app.get("/api/results", get_results.getAll)
+// GET LISTINGS BY ZIP
+app.get("/api/results/zip/:id", get_results.getByZip)
+// GET LISTINGS BY STATE
+app.get("/api/results/state/:id", get_results.getByState)
 
 
 
