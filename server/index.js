@@ -6,7 +6,7 @@ const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const massive = require("massive");
-const listings_controller = require("./controllers/listings_controller")
+const listings_controller = require("./controllers/listings_controller");
 
 const app = express();
 app.use(bodyParser.json());

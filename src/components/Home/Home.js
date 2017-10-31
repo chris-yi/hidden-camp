@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
-import { updateAllResults } from "../../ducks/reducer";
+import { connect } from "react-redux";
+import {getListings} from "../../ducks/reducer"
+// import { updateAllResults } from "../../ducks/reducer";
 
 class Home extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Home extends Component {
   }
 
   getSites() {
-    axios.get("/api/results").then(results => updateAllResults(results));
+    axios.get("/api/listings").then(results => this.props.getListings(results.data));
   }
 
   render() {
@@ -45,4 +46,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { updateAllResults })(Home);
+export default connect(mapStateToProps, {getListings})(Home);
