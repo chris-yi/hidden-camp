@@ -133,6 +133,82 @@ module.exports = {
       .then(results => res.status(200).send(results))
       .catch(() => res.status(500).send());
   },
+  // Update Listing
+  updateListing: (req, res, next) => {
+    console.log("function ran!")
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+    const {
+      listing_name,
+      img_1,
+      img_2,
+      img_3,
+      img_4,
+      img_5,
+      fires,
+      potable_water,
+      pets,
+      toilets,
+      trash,
+      showers,
+      wifi,
+      max_campers,
+      price_per_night,
+      min_night_stay,
+      check_in_time,
+      check_out_time,
+      description
+    } = req.body;
+
+
+    console.log( params.id,
+      listing_name,
+      img_1,
+      img_2,
+      img_3,
+      img_4,
+      img_5,
+      fires,
+      potable_water,
+      pets,
+      toilets,
+      trash,
+      showers,
+      wifi,
+      max_campers,
+      price_per_night,
+      min_night_stay,
+      check_in_time,
+      check_out_time,
+      description)
+
+    dbInstance
+    .update_listing([
+      params.id,
+      listing_name,
+      img_1,
+      img_2,
+      img_3,
+      img_4,
+      img_5,
+      fires,
+      potable_water,
+      pets,
+      toilets,
+      trash,
+      showers,
+      wifi,
+      max_campers,
+      price_per_night,
+      min_night_stay,
+      check_in_time,
+      check_out_time,
+      description
+    ])
+    .then(() => res.status(200).send())
+    .catch(() => res.status(500).send());
+},
+
   // Delete a listing by ID
   deleteListing: (req, res, next) => {
     const dbInstance = req.app.get("db");

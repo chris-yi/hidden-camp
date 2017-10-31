@@ -81,9 +81,7 @@ app.get("/auth/me", (req, res) => {
 // ****** Create new listing ****** //
 app.post("/api/listing", listings_controller.createListing)
 
-
 // ****** Get listing results ****** //
-
 // GET ALL HOST LISTINGS (HOST)
 app.get("/api/hostlistings/:id", listings_controller.getHostListings)
 // GET ALL LISTINGS (USER)
@@ -98,6 +96,9 @@ app.get("/api/listings/city/:id", listings_controller.getByCity)
 app.get("/api/listings/category/:id", listings_controller.getByCategory)
 // GET SPECIFIC LISTING USER CLICKED ON
 app.get("/api/listing/:id", listings_controller.getByListingId)
+
+// ****** Update a listing ****** //
+app.put("/api/listing/:id", listings_controller.updateListing)
 
 // ****** Delete a listing ****** //
 app.delete("/api/listing/:id",
