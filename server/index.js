@@ -6,7 +6,7 @@ const session = require("express-session");
 const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const massive = require("massive");
-const get_results = require("./controllers/get_results")
+const listings_controller = require("./controllers/listings_controller")
 
 const app = express();
 app.use(bodyParser.json());
@@ -78,17 +78,30 @@ app.get("/auth/me", (req, res) => {
     }
 })
 
-// ****** Get listing results ******** //
-// GET ALL LISTINGS
-app.get("/api/results", get_results.getAll)
-// GET LISTINGS BY ZIP
-app.get("/api/results/zip/:id", get_results.getByZip)
-// GET LISTINGS BY STATE
-app.get("/api/results/state/:id", get_results.getByState)
+// ****** Create new listing ****** //
+app.post("/api/listing", listings_controller.createListing)
 
+
+// ****** Get listing results ****** //
+
+// GET ALL HOST LISTINGS (HOST)
+app.get("/api/hostlistings/:id", listings_controller.getHostListings)
+// GET ALL LISTINGS (USER)
+app.get("/api/listings", listings_controller.getAll)
+// GET LISTINGS BY ZIP
+app.get("/api/listings/zip/:id", listings_controller.getByZip)
+// GET LISTINGS BY STATE
+app.get("/api/listings/state/:id", listings_controller.getByState)
+// GET LISTINGS BY CITY
+app.get("/api/listings/city/:id", listings_controller.getByCity)
+// GET LISTINGS BY CATEGORY
+app.get("/api/listings/category/:id", listings_controller.getByCategory)
+// GET SPECIFIC LISTING USER CLICKED ON
+app.get("/api/listing/:id", listings_controller.getByListingId)
 
 
 const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Listening on PORT: ${PORT}`);
 });
+
