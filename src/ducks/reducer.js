@@ -15,6 +15,8 @@ const GET_ALL_LISTINGS = "GET_ALL_LISTINGS";
 //   }
 // }
 
+
+// Get all initial listings
 export function getListings(listings){
   return {
     type: GET_ALL_LISTINGS,
@@ -25,6 +27,7 @@ export function getListings(listings){
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+
     // USE BELOW TO DISPLAY RESULTS ON SAME PAGE 
     // case GET_ALL_LISTINGS + "_FULFILLED":
     //   return Object.assign({}, state, {allListings:action.payload})

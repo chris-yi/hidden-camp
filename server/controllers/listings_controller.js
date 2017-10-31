@@ -132,5 +132,15 @@ module.exports = {
       .listing_id_result([params.id])
       .then(results => res.status(200).send(results))
       .catch(() => res.status(500).send());
+  },
+  // Delete a listing by ID
+  deleteListing: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .delete_listing([params.id])
+      .then(() => res.status(200).send())
+      .catch(() => res.status(500).send());
   }
 };

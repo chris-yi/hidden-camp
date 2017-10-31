@@ -5,9 +5,9 @@ import { getListings } from "../../ducks/reducer"
 
 class Results extends Component {
 
-    componentDidMount() {
-        this.props.getListings();
-    }
+    // componentWillMount() {
+    //     this.props.getListings();
+    // }
 
     render() {
         const allListings = this.props.allListings
@@ -15,6 +15,7 @@ class Results extends Component {
         return(
             <div>
                 <h1>Results Page</h1>
+                {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)}
             </div>
         )
     }
@@ -29,3 +30,6 @@ function mapStateToProps(state) {
   }
   
   export default connect(mapStateToProps, {getListings})(Results);
+
+
+

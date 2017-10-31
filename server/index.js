@@ -99,6 +99,10 @@ app.get("/api/listings/category/:id", listings_controller.getByCategory)
 // GET SPECIFIC LISTING USER CLICKED ON
 app.get("/api/listing/:id", listings_controller.getByListingId)
 
+// ****** Delete a listing ****** //
+app.delete("/api/listing/:id",
+listings_controller.deleteListing)
+
 
 const PORT = 8080;
 app.listen(PORT, () => {
