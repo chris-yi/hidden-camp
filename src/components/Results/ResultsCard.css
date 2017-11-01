@@ -1,0 +1,22 @@
+.resultsCard {
+    display: flex;
+    border-top: 1px solid black;
+    width: 500px;
+    font-family: 'Lato', sans-serif;
+}
+
+.site_name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card_info {
+    margin-top: 0;
+}
+
+.card_img {
+    width: 200px;
+    height: 200px;
+    border: solid 1px black;
+    margin: 20px;
+}

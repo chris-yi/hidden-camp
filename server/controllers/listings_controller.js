@@ -60,7 +60,7 @@ module.exports = {
         category
       ])
       .then(() => res.status(200).send())
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
 
   getHostListings: (req, res, next) => {
@@ -70,18 +70,18 @@ module.exports = {
     dbInstance
       .get_host_listings([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
 
   // ***** USER ***** //
   // Get all listings
   getAll: (req, res, next) => {
     const dbInstance = req.app.get("db");
-
+    console.log("get all")
     dbInstance
       .get_results()
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Get all listings by ZIP
   getByZip: (req, res, next) => {
@@ -91,7 +91,7 @@ module.exports = {
     dbInstance
       .zip_results([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Get all listings by State
   getByState: (req, res, next) => {
@@ -101,7 +101,7 @@ module.exports = {
     dbInstance
       .state_results([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Get all listings by City
   getByCity: (req, res, next) => {
@@ -111,7 +111,7 @@ module.exports = {
     dbInstance
       .city_results([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Get all listings by Category
   getByCategory: (req, res, next) => {
@@ -121,7 +121,7 @@ module.exports = {
     dbInstance
       .category_results([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Get listing by Listing ID
   getByListingId: (req, res, next) => {
@@ -131,7 +131,7 @@ module.exports = {
     dbInstance
       .listing_id_result([params.id])
       .then(results => res.status(200).send(results))
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   },
   // Update Listing
   updateListing: (req, res, next) => {
@@ -206,7 +206,7 @@ module.exports = {
       description
     ])
     .then(() => res.status(200).send())
-    .catch(() => res.status(500).send());
+    .catch((err) => res.status(500).send(err));
 },
 
   // Delete a listing by ID
@@ -217,6 +217,6 @@ module.exports = {
     dbInstance
       .delete_listing([params.id])
       .then(() => res.status(200).send())
-      .catch(() => res.status(500).send());
+      .catch((err) => res.status(500).send(err));
   }
 };

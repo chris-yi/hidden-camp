@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import {getListings} from "../../ducks/reducer"
 import Navbar from "../Navbar/Navbar";
@@ -14,7 +15,14 @@ class Home extends Component {
   }
 
   getSites() {
-    axios.get("/api/listings").then(results => this.props.getListings(results.data));
+    
+    axios.get("/api/listings").then(results => {
+      console.log(results.data)
+      this.props.getListings(results.data);
+
+    })
+   
+      
   }
 
   render() {
@@ -35,13 +43,13 @@ class Home extends Component {
             <h1 className="outdoors">THE OUTDOORS</h1>
           </div>
           <div className="search">
-            <a href="http://localhost:3000/#/Results">
-              <h3 className="discover_button" onClick={this.getSites}>Discover</h3>
-            </a>
+            <Link to="/Results">
+              <h3 className="discover_button" onClick={this.getSites}>DISCOVER</h3>
+            </Link>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 

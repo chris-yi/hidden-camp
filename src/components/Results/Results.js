@@ -2,13 +2,17 @@ import React, { Component } from "react";
 // import axios from "axios";
 import ResultCard from "./ResultsCard";
 import { connect } from "react-redux";
-import { getListings } from "../../ducks/reducer"
+import { getListings } from "../../ducks/reducer";
+import Navbar from "../Navbar/Navbar";
 
 
 class Results extends Component {
 
-    // componentWillMount() {
-    //     this.props.getListings();
+    // componentDidMount() {
+    //     axios.get("/api/listings").then(results => {
+    //         console.log(results.data)
+    //         this.props.getListings(results.data);
+    //     })
     // }
 
     render() {
@@ -20,8 +24,12 @@ class Results extends Component {
             return (
                 <ResultCard 
                 key={i}
-                address={e.address}
-                
+                listingName={e.listing_name}
+                city={e.city}
+                state={e.state}
+                pricePerNight={e.price_per_night}
+                maxCampers={e.max_campers}
+                cardImg={e.img_1}
                 />
             )
         }) : null;
@@ -29,8 +37,32 @@ class Results extends Component {
         return(
         <div>
             <div>
+                <Navbar />
+            </div>
+            {/* <div>
+                <form
+                action="http://www.google.com/search"
+                method="get"
+                name="Searchform"
+                target="_blank"
+                >
+                <input
+                autocomplete="on"
+                className="form-controls search"
+                name="q"
+                placeholder=""
+                type="text"
+                />
+                <button class="button" type="submit">
+                <i class="fa fa-search" aria-hidden="true" />
+                </button>
+                </form>
+            </div> */}
+
+
+            <div>
                 <h1>Results Page</h1>
-                {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)}
+                {/* {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)} */}
                 {resultsArr}
             </div>
             

@@ -59,7 +59,9 @@ passport.serializeUser( function(id, done) {
     done(null, id)
 })
 passport.deserializeUser( function(id, done) {
-    app.get("db").find_session_user(id).then(user => {
+
+    app.get("db").find_session_user([id]).then(user => {
+        console.log(user);
         done(null, user[0]);
     })
 })
