@@ -1,0 +1,41 @@
+.navbar {
+    /* background-color: #ffffff; */
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    width: 100px;
+}
+
+.Logo {
+    /* background-color: white; */
+}
+
+.texture {
+    /* background-color: rgba(0, 0, 0, 0.2); */
+}
+
+.Login_main {
+    width: 100px;
+}
+
+.login {
+    text-decoration: none;
+    padding-top: 15px;
+    padding-right: 20px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.buffer {
+    width: 50px;
+    padding-left: 20px;
+}
