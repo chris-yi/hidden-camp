@@ -4,7 +4,9 @@ import { Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Results from "./components/Results/Results";
 import Site from "./components/Site/Site";
-import Checkout from "./components/Checkout/Checkout"
+import Details from "./components/Details/Details";
+import Checkout from "./components/Checkout/Checkout";
+
 
 
 
@@ -16,6 +18,7 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/Results" component={Results}/>
         <Route path="/Site" component={Site}/>
+        <Route path="/Details" component={Details}/>
         <Route path="/Checkout" component={Checkout}/>
       </div>
     );

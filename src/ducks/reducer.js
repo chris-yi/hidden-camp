@@ -6,6 +6,8 @@ const initialState = {
 };
 
 const GET_ALL_LISTINGS = "GET_ALL_LISTINGS";
+const GET_ALL_MOUNTAINS = "GET_ALL_MOUNTAINS";
+const GET_ALL_OCEANFRONT = "GET_ALL_OCEANFRONT";
 
 // export function getListings() {
 //   const listing = axios.get("/api/listings").then(res => res.data);
@@ -24,6 +26,22 @@ export function getListings(listings){
   }
 }
 
+export function getMountainsListings(listings){
+  return {
+    type: GET_ALL_MOUNTAINS,
+    payload: listings
+  }
+}
+
+export function getOceanfrontListings(listings){
+  return {
+    type: GET_ALL_OCEANFRONT,
+    payload: listings
+  }
+}
+
+
+
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -34,6 +52,12 @@ export default function reducer(state = initialState, action) {
 
     case GET_ALL_LISTINGS:
       return Object.assign({}, state, {allListings:action.payload})
+    case GET_ALL_MOUNTAINS:
+      return Object.assign({}, state,
+      {allListings:action.payload})
+    case GET_ALL_OCEANFRONT:
+    return Object.assign({}, state,
+      {allListings:action.payload})
     default:
       return state;
   }

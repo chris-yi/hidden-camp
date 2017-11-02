@@ -4,6 +4,7 @@ import ResultCard from "./ResultsCard";
 import { connect } from "react-redux";
 import { getListings } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
+import "./Results.css";
 
 
 class Results extends Component {
@@ -59,12 +60,18 @@ class Results extends Component {
                 </form>
             </div> */}
 
-
-            <div>
-                <h1>Results Page</h1>
-                {/* {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)} */}
-                {resultsArr}
+            <div className="Results_Container">
+                <div className="Results">
+                    {/* {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)} */}
+                    <div className='results-box'>
+                    {resultsArr}
+                    </div>
+                </div>
+                <div className="Map">
+                    <div>MAP</div>
+                </div>
             </div>
+
             
         </div>
         )

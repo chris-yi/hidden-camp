@@ -1,6 +1,6 @@
 .resultsCard {
     display: flex;
-    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     width: 500px;
     font-family: 'Lato', sans-serif;
 }

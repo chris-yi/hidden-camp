@@ -12,7 +12,13 @@ export default function Navbar(props) {
 	return (
         <div className="navbar_main">
             <div className="navbar">
-                <p className="buffer nav-button">Something</p>
+                <div>
+                    <input className="search-bar"type="text"/>
+                    <button className="search-button" type="submit">
+              <i className="fa fa-search" aria-hidden="true" />
+            </button>
+                </div>
+                
                 <img className="Logo" src={logo2med} alt="logo"/>
                 <div className="Login_main">
                     <a href="http://localhost:8080/auth">

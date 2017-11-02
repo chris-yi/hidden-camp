@@ -1,0 +1,29 @@
+.Results_Container {
+    padding-top: 71px;
+}
+
+.Results {
+    float: left;
+    overflow-y:auto;
+    position: fixed;
+    height: 100vh;
+    width: 50%;
+}
+
+.Map {
+    float: right;
+    width: 50%;
+    border: 2px solid black;
+    height: 100vh;
+    position: fixed;
+    left: 50%;
+}
+
+.results-box {
+    margin-left: 50px;
+}
+
+.results-search {
+    position: fixed;
+}
+

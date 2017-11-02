@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getListings } from "../../ducks/reducer";
+import { getListings, getMountainsListings, getOceanfrontListings } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
@@ -15,8 +15,11 @@ class Home extends Component {
     super(props);
 
     this.getSites = this.getSites.bind(this);
+    this.getMountains = this.getMountains.bind(this);
+    this.getOceanfront = this.getOceanfront.bind(this);
   }
 
+  // Once user clicks "discover" get all results
   getSites() {
     axios.get("/api/listings").then(results => {
       console.log(results.data);
@@ -24,8 +27,23 @@ class Home extends Component {
     });
   }
 
-  getMountains() {
-    console.log("Mountains");
+  // Get Mountain Listings
+  getMountains(e) {
+    let category = e.target.className
+    axios.get(`/api/listings/category/${category}`).then(results => {
+      console.log(results.data);
+      this.props.getMountainsListings(results.data);
+    });
+  }
+
+  // Get Oceanfront Listings
+  getOceanfront(e) {
+    console.log(e.value)
+    let category = e.target.className
+    axios.get(`/api/listings/category/${category}`).then(results => {
+      console.log(results.data);
+      this.props.getOceanfrontListings(results.data);
+    });
   }
 
   render() {
@@ -66,6 +84,8 @@ class Home extends Component {
             </p>
           </div>
           <section className="photogrids">
+
+          <Link to="/Results">
           <div className="img_container" onClick={this.getMountains}>
               <img
                 src="https://source.unsplash.com/7Tr0JIWs7NA"
@@ -74,13 +94,19 @@ class Home extends Component {
               />
               <div className="img_text">Mountains</div>
             </div>
-            <div className="img_container">
+            </Link>
+
+            <Link to="/Results">
+            <div className="img_container" onClick={this.getOceanfront}>
               <img
                 src="https://source.unsplash.com/J3ABLQjZQBg"
                 alt="oceanfront"
+                className="oceanfront"
               />
               <div className="img_text">Oceanfront</div>
             </div>
+            </Link>
+            
             <div className="img_container">
               <img
                 src="https://source.unsplash.com/qKmtE3L5-X4"
@@ -123,7 +149,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getListings })(Home);
+export default connect(mapStateToProps, { getListings, getMountainsListings, getOceanfrontListings })(Home);
 
 // listing_name,
 // img_1,
