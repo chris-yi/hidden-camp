@@ -10,6 +10,8 @@ const GET_ALL_MOUNTAINS = "GET_ALL_MOUNTAINS";
 const GET_ALL_OCEANFRONT = "GET_ALL_OCEANFRONT";
 const GET_ALL_LAKEVIEW = "GET_ALL_LAKEVIEW";
 const GET_ALL_FOREST = "GET_ALL_FOREST";
+const GET_ALL_UNDER_THE_STARS = "GET_ALL_UNDER_THE_STARS";
+const GET_UNIQUE_HIDEAWAYS = "GET_UNIQUE_HIDEAWAYS";
 // export function getListings() {
 //   const listing = axios.get("/api/listings").then(res => res.data);
 //   return {
@@ -54,6 +56,22 @@ export function getForestListings(listings) {
   };
 }
 
+export function getUnderTheStarsListings(listings) {
+  return {
+    type: GET_ALL_UNDER_THE_STARS,
+    payload: listings
+  };
+}
+
+export function getUniqueHideawaysListings(listings) {
+  return {
+    type: GET_UNIQUE_HIDEAWAYS,
+    payload: listings
+  };
+}
+
+
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     // USE BELOW TO DISPLAY RESULTS ON SAME PAGE
@@ -69,6 +87,10 @@ export default function reducer(state = initialState, action) {
     case GET_ALL_LAKEVIEW:
       return Object.assign({}, state, { allListings: action.payload });
     case GET_ALL_FOREST:
+      return Object.assign({}, state, { allListings: action.payload });
+      case GET_ALL_UNDER_THE_STARS:
+      return Object.assign({}, state, { allListings: action.payload });
+      case GET_UNIQUE_HIDEAWAYS:
       return Object.assign({}, state, { allListings: action.payload });
     default:
       return state;

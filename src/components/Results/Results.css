@@ -1,22 +1,28 @@
 .Results_Container {
-    padding-top: 71px;
+    padding-top: 75px;
 }
 
 .Results {
     float: left;
     overflow-y:auto;
     position: fixed;
-    height: 100vh;
+    height: calc(100vh - 75px);
     width: 50%;
 }
 
 .Map {
     float: right;
     width: 50%;
-    border: 2px solid black;
+    border: 2px solid #EEEEEE;
     height: 100vh;
     position: fixed;
     left: 50%;
+}
+
+.Map_Text {
+    margin-top: 50%;
+    margin-left: 50%;
+    font-size: 36px;    
 }
 
 .results-box {

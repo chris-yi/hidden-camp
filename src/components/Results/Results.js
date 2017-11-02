@@ -30,6 +30,7 @@ class Results extends Component {
                 state={e.state}
                 pricePerNight={e.price_per_night}
                 maxCampers={e.max_campers}
+                category={e.category}
                 cardImg={e.img_1}
                 />
             )
@@ -68,7 +69,7 @@ class Results extends Component {
                     </div>
                 </div>
                 <div className="Map">
-                    <div>MAP</div>
+                    <div className="Map_Text">MAP</div>
                 </div>
             </div>
 

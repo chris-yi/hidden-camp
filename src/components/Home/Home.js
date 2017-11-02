@@ -7,9 +7,12 @@ import {
   getMountainsListings,
   getOceanfrontListings,
   getLakeviewListings,
-  getForestListings
+  getForestListings,
+  getUnderTheStarsListings,
+  getUniqueHideawaysListings
 } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
 
@@ -24,6 +27,8 @@ class Home extends Component {
     this.getOceanfront = this.getOceanfront.bind(this);
     this.getLakeview = this.getLakeview.bind(this);
     this.getForest = this.getForest.bind(this);
+    this.getUnderTheStars = this.getUnderTheStars.bind(this);
+    this.getUniqueHideaways = this.getUniqueHideaways.bind(this);
   }
 
   // Once user clicks "discover" get all results
@@ -34,37 +39,51 @@ class Home extends Component {
   }
 
   // Get Mountain Listings
-  getMountains(e) {
+  getMountains() {
     // let category = e.target.className
-    axios.get(`/api/listings/category/${e}`).then(results => {
+    axios.get(`/api/listings/category/mountains`).then(results => {
       this.props.getMountainsListings(results.data);
     });
   }
 
   // Get Oceanfront Listings
-  getOceanfront(e) {
-    axios.get(`/api/listings/category/${e}`).then(results => {
+  getOceanfront() {
+    axios.get(`/api/listings/category/oceanfront`).then(results => {
       console.log(results.data);
       this.props.getOceanfrontListings(results.data);
     });
   }
 
   // Get Lakeview Listings
-  getLakeview(e) {
-    axios.get(`/api/listings/category/${e}`).then(results => {
+  getLakeview() {
+    axios.get(`/api/listings/category/lakeview`).then(results => {
       console.log(results.data);
       this.props.getLakeviewListings(results.data);
     });
   }
 
-// Get Forest Listings
-  getForest(e) {
-    console.log(e)
-    axios.get(`/api/listings/category/${e}`).then(results => {
+  // Get Forest Listings
+  getForest() {
+    axios.get(`/api/listings/category/forest`).then(results => {
       console.log(results.data);
       this.props.getForestListings(results.data);
     });
   }
+
+  // Get Under the Stars Listings
+  getUnderTheStars() {
+    axios.get(`/api/listings/category/under-the-stars`).then(results => {
+      this.props.getUnderTheStarsListings(results.data);
+    });
+  }
+
+  // Get Unique Hideaways
+  getUniqueHideaways() {
+    axios.get(`/api/listings/category/unique-hideaways`).then(results => {
+      this.props.getUniqueHideawaysListings(results.data);
+    });
+  }
+
 
   render() {
     return (
@@ -91,10 +110,11 @@ class Home extends Component {
             </Link>
           </div>
         </div>
+
         <div className="categories">
           <div className="categories_header">
             <h1>Explore</h1>
-            <p>
+            <p className="categories_p">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -103,25 +123,23 @@ class Home extends Component {
               nulla pariatur.
             </p>
           </div>
+
           <section className="photogrids">
             <Link to="/Results">
-              <div
-                className="mountains img_container"
-                onClick={this.getMountains("mountains")}
-              >
-                <img
-                  src="https://source.unsplash.com/7Tr0JIWs7NA"
-                  alt="mountains"
-                  className="mountains"
-                />
-                <div className="img_text">Mountains</div>
-              </div>
+                <div className="img_container" onClick={this.getMountains}>
+                  <img
+                    src="https://source.unsplash.com/7Tr0JIWs7NA"
+                    alt="mountains"
+                    className="mountains"
+                  />
+                  <div className="img_text" onClick={this.getMountains}>Mountains</div>
+                </div>
             </Link>
 
             <Link to="/Results">
               <div
                 className="oceanfront img_container"
-                onClick={this.getOceanfront("oceanfront")}
+                onClick={this.getOceanfront}
               >
                 <img
                   src="https://source.unsplash.com/J3ABLQjZQBg"
@@ -135,7 +153,7 @@ class Home extends Component {
             <Link to="/Results">
               <div
                 className="lakeview img_container"
-                onClick={this.getLakeview("lakeview")}
+                onClick={this.getLakeview}
               >
                 <img
                   src="https://source.unsplash.com/qKmtE3L5-X4"
@@ -147,31 +165,35 @@ class Home extends Component {
             </Link>
 
             <Link to="/Results">
-            <div className="forest img_container"
-            onClick={this.getForest("forest")}
-            >
-              <img
-                src="https://source.unsplash.com/Gc7Ahec__XQ"
-                alt="forest"
-                className="forest"
-              />
-              <div className="forest img_text">Forest</div>
-            </div>
+              <div className="forest img_container" onClick={this.getForest}>
+                <img
+                  src="https://source.unsplash.com/Gc7Ahec__XQ"
+                  alt="forest"
+                  className="forest"
+                />
+                <div className="forest img_text">Forest</div>
+              </div>
             </Link>
 
-            <div className="img_container">
+            <Link to="/Results">
+            <div className="img_container" onClick={this.getUnderTheStars}>
               <img
                 src="https://source.unsplash.com/1azAjl8FTnU"
                 alt="under-the-stars"
               />
               <div className="img_text">Under the stars</div>
             </div>
-            <div className="img_container">
+            </Link>
+
+            <Link to="/Results">
+            <div className="img_container" onClick={this.getUniqueHideaways}>
               <img src={unique_final} alt="gamping" className="gamping" />
-              <div className="img_text">Unique Hideways</div>
+              <div className="img_text">Unique Hideaways</div>
             </div>
+            </Link>
           </section>
         </div>
+        <Footer/>
       </div>
     );
   }
@@ -188,25 +210,8 @@ export default connect(mapStateToProps, {
   getMountainsListings,
   getOceanfrontListings,
   getLakeviewListings,
-  getForestListings
+  getForestListings,
+  getUnderTheStarsListings,
+  getUniqueHideawaysListings
 })(Home);
 
-// listing_name,
-// img_1,
-// img_2,
-// img_3,
-// img_4,
-// img_5,
-// fires,
-// potable_water,
-// pets,
-// toilets,
-// trash,
-// showers,
-// wifi,
-// max_campers,
-// price_per_night,
-// min_night_stay,
-// check_in_time,
-// check_out_time,
-// description

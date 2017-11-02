@@ -14,6 +14,7 @@ export default function Results(props) {
                 <li>{props.state}</li>
                 <li>${props.pricePerNight.toString()}/night</li>
                 <li>Max Campers:{props.maxCampers}</li>
+                <li>Category: {props.category}</li>
             </ul>
         </div>
     )
