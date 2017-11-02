@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getListings, getMountainsListings, getOceanfrontListings } from "../../ducks/reducer";
+import { getListings, getMountainsListings, getOceanfrontListings, getLakeviewListings } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
@@ -17,32 +17,39 @@ class Home extends Component {
     this.getSites = this.getSites.bind(this);
     this.getMountains = this.getMountains.bind(this);
     this.getOceanfront = this.getOceanfront.bind(this);
+    this.getLakeview = this.getLakeview.bind(this);
   }
 
   // Once user clicks "discover" get all results
   getSites() {
     axios.get("/api/listings").then(results => {
-      console.log(results.data);
       this.props.getListings(results.data);
     });
   }
 
   // Get Mountain Listings
   getMountains(e) {
-    let category = e.target.className
-    axios.get(`/api/listings/category/${category}`).then(results => {
-      console.log(results.data);
+    // let category = e.target.className
+    axios.get(`/api/listings/category/${e}`).then(results => {
       this.props.getMountainsListings(results.data);
     });
   }
 
   // Get Oceanfront Listings
   getOceanfront(e) {
-    console.log(e.value)
-    let category = e.target.className
-    axios.get(`/api/listings/category/${category}`).then(results => {
+    axios.get(`/api/listings/category/${e}`).then(results => {
       console.log(results.data);
       this.props.getOceanfrontListings(results.data);
+    });
+  }
+
+  // Get Mountain Listings
+  getLakeview(e) {
+    console.log(e.target.className)
+    let category = e.target.className
+     axios.get(`/api/listings/category/${category}`).then(results => {
+      console.log(results.data);
+      this.props.getLakeviewListings(results.data);
     });
   }
 
@@ -86,7 +93,7 @@ class Home extends Component {
           <section className="photogrids">
 
           <Link to="/Results">
-          <div className="img_container" onClick={this.getMountains}>
+          <div className="mountains img_container" onClick={this.getMountains('mountains')}>
               <img
                 src="https://source.unsplash.com/7Tr0JIWs7NA"
                 alt="mountains"
@@ -97,24 +104,27 @@ class Home extends Component {
             </Link>
 
             <Link to="/Results">
-            <div className="img_container" onClick={this.getOceanfront}>
+            <div className="oceanfront img_container" onClick={this.getOceanfront("oceanfront")}>
               <img
                 src="https://source.unsplash.com/J3ABLQjZQBg"
                 alt="oceanfront"
                 className="oceanfront"
               />
-              <div className="img_text">Oceanfront</div>
+              <div className="oceanfront img_text">Oceanfront</div>
             </div>
             </Link>
-            
-            <div className="img_container">
+
+            <Link to="/Results">
+            <div className="lakeview img_container" onClick={this.getLakeview}>
               <img
                 src="https://source.unsplash.com/qKmtE3L5-X4"
                 alt="lakeview"
-                className=""
+                className="lakeview"
               />
-              <div className="img_text">Lakeview</div>
+              <div className="lakeview img_text">Lakeview</div>
             </div>
+            </Link>
+
             <div className="img_container">
               <img src="https://source.unsplash.com/Gc7Ahec__XQ" alt="forest" 
               className="forest"
@@ -149,7 +159,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getListings, getMountainsListings, getOceanfrontListings })(Home);
+export default connect(mapStateToProps, { getListings, getMountainsListings, getOceanfrontListings, getLakeviewListings })(Home);
 
 // listing_name,
 // img_1,
