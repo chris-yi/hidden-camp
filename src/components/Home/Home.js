@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getListings, getMountainsListings, getOceanfrontListings, getLakeviewListings } from "../../ducks/reducer";
+import {
+  getListings,
+  getMountainsListings,
+  getOceanfrontListings,
+  getLakeviewListings,
+  getForestListings
+} from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
-
 
 // import { updateAllResults } from "../../ducks/reducer";
 
@@ -18,6 +23,7 @@ class Home extends Component {
     this.getMountains = this.getMountains.bind(this);
     this.getOceanfront = this.getOceanfront.bind(this);
     this.getLakeview = this.getLakeview.bind(this);
+    this.getForest = this.getForest.bind(this);
   }
 
   // Once user clicks "discover" get all results
@@ -43,13 +49,20 @@ class Home extends Component {
     });
   }
 
-  // Get Mountain Listings
+  // Get Lakeview Listings
   getLakeview(e) {
-    console.log(e.target.className)
-    let category = e.target.className
-     axios.get(`/api/listings/category/${category}`).then(results => {
+    axios.get(`/api/listings/category/${e}`).then(results => {
       console.log(results.data);
       this.props.getLakeviewListings(results.data);
+    });
+  }
+
+// Get Forest Listings
+  getForest(e) {
+    console.log(e)
+    axios.get(`/api/listings/category/${e}`).then(results => {
+      console.log(results.data);
+      this.props.getForestListings(results.data);
     });
   }
 
@@ -91,46 +104,61 @@ class Home extends Component {
             </p>
           </div>
           <section className="photogrids">
-
-          <Link to="/Results">
-          <div className="mountains img_container" onClick={this.getMountains('mountains')}>
-              <img
-                src="https://source.unsplash.com/7Tr0JIWs7NA"
-                alt="mountains"
-                className="mountains"
-              />
-              <div className="img_text">Mountains</div>
-            </div>
+            <Link to="/Results">
+              <div
+                className="mountains img_container"
+                onClick={this.getMountains("mountains")}
+              >
+                <img
+                  src="https://source.unsplash.com/7Tr0JIWs7NA"
+                  alt="mountains"
+                  className="mountains"
+                />
+                <div className="img_text">Mountains</div>
+              </div>
             </Link>
 
             <Link to="/Results">
-            <div className="oceanfront img_container" onClick={this.getOceanfront("oceanfront")}>
-              <img
-                src="https://source.unsplash.com/J3ABLQjZQBg"
-                alt="oceanfront"
-                className="oceanfront"
-              />
-              <div className="oceanfront img_text">Oceanfront</div>
-            </div>
+              <div
+                className="oceanfront img_container"
+                onClick={this.getOceanfront("oceanfront")}
+              >
+                <img
+                  src="https://source.unsplash.com/J3ABLQjZQBg"
+                  alt="oceanfront"
+                  className="oceanfront"
+                />
+                <div className="oceanfront img_text">Oceanfront</div>
+              </div>
             </Link>
 
             <Link to="/Results">
-            <div className="lakeview img_container" onClick={this.getLakeview}>
+              <div
+                className="lakeview img_container"
+                onClick={this.getLakeview("lakeview")}
+              >
+                <img
+                  src="https://source.unsplash.com/qKmtE3L5-X4"
+                  alt="lakeview"
+                  className="lakeview"
+                />
+                <div className="lakeview img_text">Lakeview</div>
+              </div>
+            </Link>
+
+            <Link to="/Results">
+            <div className="forest img_container"
+            onClick={this.getForest("forest")}
+            >
               <img
-                src="https://source.unsplash.com/qKmtE3L5-X4"
-                alt="lakeview"
-                className="lakeview"
+                src="https://source.unsplash.com/Gc7Ahec__XQ"
+                alt="forest"
+                className="forest"
               />
-              <div className="lakeview img_text">Lakeview</div>
+              <div className="forest img_text">Forest</div>
             </div>
             </Link>
 
-            <div className="img_container">
-              <img src="https://source.unsplash.com/Gc7Ahec__XQ" alt="forest" 
-              className="forest"
-              />
-              <div className="img_text">Forest</div>
-            </div>
             <div className="img_container">
               <img
                 src="https://source.unsplash.com/1azAjl8FTnU"
@@ -139,11 +167,7 @@ class Home extends Component {
               <div className="img_text">Under the stars</div>
             </div>
             <div className="img_container">
-              <img
-                src={unique_final}
-                alt="gamping"
-                className="gamping"
-              />
+              <img src={unique_final} alt="gamping" className="gamping" />
               <div className="img_text">Unique Hideways</div>
             </div>
           </section>
@@ -159,7 +183,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { getListings, getMountainsListings, getOceanfrontListings, getLakeviewListings })(Home);
+export default connect(mapStateToProps, {
+  getListings,
+  getMountainsListings,
+  getOceanfrontListings,
+  getLakeviewListings,
+  getForestListings
+})(Home);
 
 // listing_name,
 // img_1,

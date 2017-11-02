@@ -8,7 +8,8 @@ const initialState = {
 const GET_ALL_LISTINGS = "GET_ALL_LISTINGS";
 const GET_ALL_MOUNTAINS = "GET_ALL_MOUNTAINS";
 const GET_ALL_OCEANFRONT = "GET_ALL_OCEANFRONT";
-const GET_ALL_LAKEVIEW = "GET_ALL_OCEANFRONT";
+const GET_ALL_LAKEVIEW = "GET_ALL_LAKEVIEW";
+const GET_ALL_FOREST = "GET_ALL_FOREST";
 // export function getListings() {
 //   const listing = axios.get("/api/listings").then(res => res.data);
 //   return {
@@ -46,6 +47,13 @@ export function getLakeviewListings(listings) {
   };
 }
 
+export function getForestListings(listings) {
+  return {
+    type: GET_ALL_FOREST,
+    payload: listings
+  };
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     // USE BELOW TO DISPLAY RESULTS ON SAME PAGE
@@ -59,6 +67,8 @@ export default function reducer(state = initialState, action) {
     case GET_ALL_OCEANFRONT:
       return Object.assign({}, state, { allListings: action.payload });
     case GET_ALL_LAKEVIEW:
+      return Object.assign({}, state, { allListings: action.payload });
+    case GET_ALL_FOREST:
       return Object.assign({}, state, { allListings: action.payload });
     default:
       return state;
