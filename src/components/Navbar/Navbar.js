@@ -16,7 +16,9 @@ export default function Navbar(props) {
             </button>
                 </div>
                 <div className="Logo_Main">
+                <a href="http://localhost:3000/Home/">
                 <img className="Logo" src={logo2med} alt="logo"/>
+                </a>
                 </div>
                 <div className="Login_main">
                     <a href="http://localhost:8080/auth">

@@ -4,6 +4,7 @@ import ResultCard from "./ResultsCard";
 import { connect } from "react-redux";
 import { getListings } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import "./Results.css";
 
 
@@ -72,8 +73,7 @@ class Results extends Component {
                     <div className="Map_Text">MAP</div>
                 </div>
             </div>
-
-            
+            <Footer/>
         </div>
         )
     }

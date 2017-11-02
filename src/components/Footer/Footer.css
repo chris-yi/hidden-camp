@@ -26,7 +26,7 @@
     padding-bottom: 90px;
     position: relative;
     z-index: 1;
-    height: 250px;
+    height: 12px;
 }
 
 .footer_top {
@@ -46,3 +46,6 @@
     width: 100%;
 }
 
+.footer_container {
+    height: 800px;
+}
