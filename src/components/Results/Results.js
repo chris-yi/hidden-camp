@@ -27,6 +27,7 @@ class Results extends Component {
                 <ResultCard 
                 key={i}
                 listingName={e.listing_name}
+                listingID={e.listing_id}
                 city={e.city}
                 state={e.state}
                 pricePerNight={e.price_per_night}
@@ -42,26 +43,6 @@ class Results extends Component {
             <div>
                 <Navbar />
             </div>
-            {/* <div>
-                <form
-                action="http://www.google.com/search"
-                method="get"
-                name="Searchform"
-                target="_blank"
-                >
-                <input
-                autocomplete="on"
-                className="form-controls search"
-                name="q"
-                placeholder=""
-                type="text"
-                />
-                <button class="button" type="submit">
-                <i class="fa fa-search" aria-hidden="true" />
-                </button>
-                </form>
-            </div> */}
-
             <div className="Results_Container">
                 <div className="Results">
                     {/* {allListings.length ? (<h1>{allListings[0].address}</h1>) : (<i className="fa fa-cog fa-spin fa-2x fa-fw"></i>)} */}

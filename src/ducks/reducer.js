@@ -2,6 +2,7 @@
 
 const initialState = {
   name: "Chris",
+  listingID: null,
   allListings: []
 };
 
@@ -12,6 +13,8 @@ const GET_ALL_LAKEVIEW = "GET_ALL_LAKEVIEW";
 const GET_ALL_FOREST = "GET_ALL_FOREST";
 const GET_ALL_UNDER_THE_STARS = "GET_ALL_UNDER_THE_STARS";
 const GET_UNIQUE_HIDEAWAYS = "GET_UNIQUE_HIDEAWAYS";
+
+const UPDATE_LISTING_ID = "UPDATE_LISTING_ID";
 // export function getListings() {
 //   const listing = axios.get("/api/listings").then(res => res.data);
 //   return {
@@ -70,7 +73,12 @@ export function getUniqueHideawaysListings(listings) {
   };
 }
 
-
+export function updateListingID(id) {
+  return {
+    type: UPDATE_LISTING_ID,
+    payload: id
+  };
+}
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -88,10 +96,12 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { allListings: action.payload });
     case GET_ALL_FOREST:
       return Object.assign({}, state, { allListings: action.payload });
-      case GET_ALL_UNDER_THE_STARS:
+    case GET_ALL_UNDER_THE_STARS:
       return Object.assign({}, state, { allListings: action.payload });
-      case GET_UNIQUE_HIDEAWAYS:
+    case GET_UNIQUE_HIDEAWAYS:
       return Object.assign({}, state, { allListings: action.payload });
+    case UPDATE_LISTING_ID:
+      return Object.assign({}, state, { listingID: action.payload });
     default:
       return state;
   }
