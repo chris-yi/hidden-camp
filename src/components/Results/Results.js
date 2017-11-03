@@ -54,7 +54,9 @@ class Results extends Component {
                     <div className="Map_Text">MAP</div>
                 </div>
             </div>
+            <div>
             <Footer/>
+            </div>
         </div>
         )
     }

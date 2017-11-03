@@ -57,12 +57,14 @@
     position: relative;
     font-family: 'Lato', sans-serif;
     font-size: 15px;
+    text-align: center;
 }
 
 .social {
     color: white;
     z-index: 2;
     position: relative;
+    text-align: center;
 }
 
 
