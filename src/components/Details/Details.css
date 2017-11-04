@@ -1,14 +1,7 @@
 .Details_Container{
-    padding-top: 75px;
+    padding-top: 90px;
 }
 
-
-.Carousel_Container {
-    text-align: center;
-    height: 600px;
-    width: 800px;
-    margin: auto;
-}
 
 /******* CAROUSEL *******/
 /********************************************
@@ -20,6 +13,19 @@
 /********************************************
 	COLOURS
 ********************************************/
+
+.Carousel_Container {
+    text-align: center;
+    height: 650px;
+    width: 1000px;
+    margin: auto;
+}
+
+/* .Carousel_Length {
+    position: absolute;
+    margin-bottom: 100px;
+} */
+
 .carousel .control-arrow, .carousel.carousel-slider .control-arrow {
     -webkit-transition: all 0.25s ease-in;
     -moz-transition: all 0.25s ease-in;
@@ -59,8 +65,8 @@
         border-left: 8px solid #fff; }
   
   .carousel {
-    height: 450px !important;
-    width: 800px !important;
+    max-height: 563px !important;
+    max-width: 1000px !important;
     position: relative; }
     .carousel * {
       margin: 0;
@@ -124,12 +130,13 @@
       .carousel.carousel-slider .control-arrow {
         top: 0;
         color: #fff;
+        background: rgba(0, 0, 0, 0.2);
         font-size: 26px;
         bottom: 0;
         margin-top: 0;
         padding: 5px; }
         .carousel.carousel-slider .control-arrow:hover {
-          background: rgba(0, 0, 0, 0.2); }
+          background: rgba(0, 0, 0, 0.5); }
     .carousel .slider-wrapper {
       overflow: hidden;
       margin: auto;
@@ -248,3 +255,50 @@
     .carousel:hover .slide .legend {
       opacity: 1; }
   
+
+.Listing_Details {
+    width: 800px;
+    color: #3F3F3F;
+    margin: 80px auto 500px auto;
+    z-index: 999;
+    position: relative;
+
+}
+
+.Name_Price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Listing_Name {
+    margin-top: 0;
+}
+
+.Request_Container {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2147483647;
+}
+.Request_Container h3 {
+    margin: 0;
+    padding: 20px;
+
+}
+
+.Request_Button {
+    border-left: 1px solid black;
+}
+
+.Amenities_Logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Listing_Container {
+    position: absolute;
+    width: 100%
+}
