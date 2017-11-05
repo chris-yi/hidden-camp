@@ -172,19 +172,19 @@ class Details extends Component {
               onClickThumb={onClickThumb}
             >
               <div>
-                <img src={details.img_1} />
+                <img src={details.img_1} alt="img-1" />
               </div>
               <div>
-                <img src={details.img_2} />
+                <img src={details.img_2} alt="img-2" />
               </div>
               <div>
-                <img src={details.img_3} />
+                <img src={details.img_3} alt="img-3" />
               </div>
               <div>
-                <img src={details.img_4} />
+                <img src={details.img_4} alt="img-4" />
               </div>
               <div>
-                <img src={details.img_5} />
+                <img src={details.img_5} alt="img-5" />
               </div>
             </Carousel>
           </div>

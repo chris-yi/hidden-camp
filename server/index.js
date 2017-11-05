@@ -80,8 +80,11 @@ app.get("/auth/me", (req, res) => {
     }
 })
 
-// ****** Create new listing ****** //
+// ****** Create ****** //
+// CREATE NEW LISTING
 app.post("/api/listing", listings_controller.createListing)
+// CREATE NEW BOOKING
+app.post("/api/booking", listings_controller.createBooking)
 
 // ****** Get listing results ****** //
 // GET ALL HOST LISTINGS (HOST)

@@ -18,8 +18,8 @@ class Results extends Component {
     // }
 
     render() {
-        const allListings = this.props.allListings
-        console.log(this.props.allListings)
+        // const allListings = this.props.allListings
+        // console.log(this.props.allListings)
 
         const resultsArr = this.props.allListings?
         this.props.allListings.map((e, i) => {

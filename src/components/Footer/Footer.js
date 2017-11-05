@@ -17,22 +17,22 @@ export default function Footer(props) {
                     <div className="social">
                         <ul className="social_media">
                             <li>
-                                <a href="https://www.facebook.com/hid.camp.94" target="_blank">
+                                <a href="https://www.facebook.com/hid.camp.94" target="_blank" rel="noopener noreferrer">
                                 <i className="fa fa-facebook-square fa-lg" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/hidden_camp/" target="_blank">
+                                <a href="https://www.instagram.com/hidden_camp/" target="_blank" rel="noopener noreferrer">
                                 <i className="fa fa-instagram fa-lg" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/hiddencamp" target="_blank">
+                                <a href="https://twitter.com/hiddencamp" target="_blank" rel="noopener noreferrer">
                                 <i className="fa fa-twitter fa-lg" aria-hidden="true"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:hiddencamp2017@gmail.com" target="_blank">
+                                <a href="mailto:hiddencamp2017@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <i className="fa fa-envelope fa-lg" aria-hidden="true"></i>
                                 </a>
                             </li>

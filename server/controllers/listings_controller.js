@@ -63,6 +63,20 @@ module.exports = {
       .catch((err) => res.status(500).send(err));
   },
 
+  createBooking: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const {
+      user_id, listing_id, check_in_date, check_out_date, total_cost, host_id
+    } = req.body;
+    dbInstance
+    .create_booking([
+      user_id, listing_id, check_in_date, check_out_date, total_cost, host_id
+    ])
+    // .then((booking) => console.log(booking))
+    .then(() => res.status(200).send())
+    .catch((err) => res.status(500).send(err));
+  },
+
   getHostListings: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params } = req;

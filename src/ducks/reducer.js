@@ -15,6 +15,8 @@ const GET_ALL_UNDER_THE_STARS = "GET_ALL_UNDER_THE_STARS";
 const GET_UNIQUE_HIDEAWAYS = "GET_UNIQUE_HIDEAWAYS";
 
 const UPDATE_LISTING_ID = "UPDATE_LISTING_ID";
+
+const GET_CITY_LISTINGS = "GET_CITY_LISTINGS";
 // export function getListings() {
 //   const listing = axios.get("/api/listings").then(res => res.data);
 //   return {
@@ -73,12 +75,21 @@ export function getUniqueHideawaysListings(listings) {
   };
 }
 
+export function getCityListings(listings) {
+  return {
+    type: GET_CITY_LISTINGS,
+    payload: listings
+  };
+}
+
 export function updateListingID(id) {
   return {
     type: UPDATE_LISTING_ID,
     payload: id
   };
 }
+
+
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -102,6 +113,8 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { allListings: action.payload });
     case UPDATE_LISTING_ID:
       return Object.assign({}, state, { listingID: action.payload });
+    case GET_CITY_LISTINGS:
+      return Object.assign({}, state, { allListings: action.payload });
     default:
       return state;
   }
