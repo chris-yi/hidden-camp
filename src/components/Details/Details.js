@@ -76,7 +76,10 @@ class Details extends Component {
           icon: "success"
         });
       } else {
-        swal("Ok, resubmit when you're ready!");
+        swal({
+          title: "Ok, please re-submit when you're ready!",
+          icon: "warning"
+        });
       }
     });
   }
@@ -245,7 +248,7 @@ class Details extends Component {
               <div className="Request_Container">
                 <div>
 
-                  <h3>${details.price_per_night}</h3>
+                  <h3 className="Request_Price">${details.price_per_night}</h3>
 
                 </div>
                 <div className="Request_Button" onClick={this.postBooking}>

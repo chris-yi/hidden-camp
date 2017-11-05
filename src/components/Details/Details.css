@@ -1,5 +1,6 @@
 .Details_Container{
     padding-top: 90px;
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -257,6 +258,7 @@
   
 
 .Listing_Details {
+    font-family: 'Lato', sans-serif;
     width: 800px;
     color: #3F3F3F;
     margin: 80px auto 500px auto;
@@ -276,7 +278,6 @@
 
 .Request_Container {
     display: flex;
-    border: 1px solid black;
     border-radius: 3px;
     height: 100%;
     align-items: center;
@@ -289,8 +290,16 @@
 
 }
 
+.Request_Price {
+  background-color: #60C594;
+  color: #ffffff;
+  font-weight: 100;
+}
+
 .Request_Button {
-    border-left: 1px solid black;
+    background-color: rgb(138, 238, 146);
+    color: #ffffff;
+
 }
 
 .Request_Button :hover {
