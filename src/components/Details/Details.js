@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./Details.css";
@@ -10,17 +11,27 @@ import {
   onClickThumb
 } from "react-responsive-carousel";
 import Footer from "../Footer/Footer";
+import swal from 'sweetalert'
+
 
 class Details extends Component {
   constructor() {
     super();
 
     this.state = {
-      listing: null
+      listing: null,
+      user_id: null,
+      // listing_id: null,
+      check_in_date: null,
+      check_out_date: null
+      // total_cost: null,
+      // host_id: null
+
     };
 
     this.getListing = this.getListing.bind(this);
     this.toilet = this.toilet.bind(this);
+    this.postBooking = this.postBooking.bind(this);
   }
 
   componentWillMount = () => {
@@ -33,6 +44,40 @@ class Details extends Component {
     });
     this.setState({
       listing: listing
+    });
+  }
+
+  // TO BOOK A LISTING
+  postBooking() {
+    axios.post(`/api/booking/`, {
+      user_id: this.state.user_id,
+      listing_id: this.state.listing[0].listing_id,
+      check_in_date: this.state.check_in_date,
+      check_out_date: this.state.check_out_date,
+      total_cost: this.state.listing[0].price_per_night,
+      host_id: this.state.listing[0].host_id
+    })
+    swal({
+      title: "Please confirm your Booking!",
+      // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
+      text: `Total: $${this.state.listing[0].price_per_night * 3}`,
+      icon: "info",
+      buttons: true,
+      dangerMode: false
+      ,
+    })
+    
+    
+    .then((confirm) => {
+      if (confirm) {
+        swal({
+          title: "Thank you!",
+          text: "Your request has been sent to the Host!",
+          icon: "success"
+        });
+      } else {
+        swal("Ok, resubmit when you're ready!");
+      }
     });
   }
 
@@ -197,18 +242,16 @@ class Details extends Component {
                 <h1 className="Listing_Name">{details.listing_name}</h1>
               </div>
               
-              <Link to="/Checkout">
               <div className="Request_Container">
                 <div>
 
                   <h3>${details.price_per_night}</h3>
 
                 </div>
-                <div className="Request_Button">
+                <div className="Request_Button" onClick={this.postBooking}>
                   <h3>Request to Book</h3>
                 </div>
               </div>
-              </Link>
               
 
             </div>
