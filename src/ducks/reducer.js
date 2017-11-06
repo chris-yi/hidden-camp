@@ -1,7 +1,6 @@
 // import axios from "axios";
 
 const initialState = {
-  name: "Chris",
   listingID: null,
   allListings: []
 };

@@ -276,13 +276,20 @@
     margin-top: 0;
 }
 
+.Listing_City_State {
+  margin-top: 10px;
+}
+
 .Request_Container {
     display: flex;
     border-radius: 3px;
     height: 100%;
+    width: 300px;
     align-items: center;
     justify-content: center;
     z-index: 2147483647;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 .Request_Container h3 {
     margin: 0;
@@ -310,6 +317,15 @@
   transition: 0.3s ease-in-out;
 }
 
+.Location_Request {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Location_Details {
+  width: 450px;
+}
+
 .Amenities_Logo {
     display: flex;
     justify-content: space-between;
@@ -322,4 +338,29 @@
 
 .swal-overlay {
   background-color: rgba(43, 165, 137, 0.45);
+}
+
+/* .datetime-container {
+  justify-content: center;
+} */
+
+.Date_Picker_Main {
+  width: 300px;
+}
+
+
+.datetime-container {
+  justify-content: center;
+}
+
+#root > div > div > div.Listing_Container > div > div > div.Location_Request > div:nth-child(2) > div > div:nth-child(1) > button {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+}
+
+#root > div > div > div.Listing_Container > div > div > div.Location_Request > div:nth-child(2) > div > div:nth-child(2) > button {
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
 }

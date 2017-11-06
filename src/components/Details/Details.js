@@ -10,6 +10,10 @@ import {
   onClickItem,
   onClickThumb
 } from "react-responsive-carousel";
+import DateTimePicker from 'material-ui-datetimepicker';
+import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
+import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Footer from "../Footer/Footer";
 import swal from 'sweetalert'
 
@@ -201,6 +205,10 @@ class Details extends Component {
     }
   }
 
+  setCheckIn = (check_in_date) => this.setState({ check_in_date })
+  setCheckOut = (check_out_date) => this.setState({ check_out_date })
+
+
   render() {
     console.log(this.state.listing);
     const details = this.state.listing[0];
@@ -246,6 +254,7 @@ class Details extends Component {
               </div>
               
               <div className="Request_Container">
+
                 <div>
 
                   <h3 className="Request_Price">${details.price_per_night}</h3>
@@ -258,11 +267,43 @@ class Details extends Component {
               
 
             </div>
-            <div className="Location_Description">
-              <h4>
-                {details.city}, {details.state}
-              </h4>
-              <p>{details.description}</p>
+            <div className="Location_Request">
+              <div>
+                <h4 className="Listing_City_State">
+                  {details.city}, {details.state}
+                </h4>
+                <p className="Location_Details">{details.description}</p>
+              </div>
+              <div className="Date_Picker_Main">
+              <div classNAme="Date_Picker">
+                <MuiThemeProvider>
+                  <DateTimePicker 
+                    onChange={this.setCheckIn}
+                    DatePicker={DatePickerDialog}
+                    TimePicker={TimePickerDialog}
+                    floatingLabelFixed	
+                    floatingLabelText="Check-In Date"
+                    floatingLabelFocusStyle={{ marginTop: '10px' }}
+                    disabled={false}
+                    id="some-id"
+                    fullWidth={false}
+                    clearIcon={null}
+                    />
+                    <DateTimePicker 
+                    onChange={this.setCheckOut}
+                    DatePicker={DatePickerDialog}
+                    TimePicker={TimePickerDialog}
+                    floatingLabelFixed	
+                    floatingLabelText="Check-In Date"
+                    floatingLabelFocusStyle={{ marginTop: '10px' }}
+                    disabled={false}
+                    id="some-id"
+                    fullWidth={false}
+                    clearIcon={null}
+                    />
+                </MuiThemeProvider>
+                </div>
+              </div>
             </div>
             <hr />
             <div className="Amenities">
