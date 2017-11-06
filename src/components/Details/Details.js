@@ -15,6 +15,7 @@ import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Footer from "../Footer/Footer";
+import MyFancyComponent from "../Map/Map";
 import swal from 'sweetalert'
 
 
@@ -331,15 +332,22 @@ class Details extends Component {
             <hr />
           <div className="Details">
             <h3>Details</h3>
-            <div className="Details_1">
-              <p>Max Campers: {details.max_campers}</p>
-              <p>Minimum Nights stay: {details.min_night_stay}</p>
-              <p>Category: {details.Category}</p>
+            <div className="Details_Info">
+              <div className="Details">
+                <p>Max Campers: {details.max_campers}</p>
+                <p>Minimum Nights stay: {details.min_night_stay}</p>
+                <p>Category: {details.Category}</p>
+                <p>Check-in: {details.check_in_time}</p>
+                <p>Check-out: {details.check_out_time}</p>
+              </div>
             </div>
-            <div className="Details_2">
-            <p>Check-in: {details.check_in_time}</p>
-            <p>Check-out: {details.check_out_time}</p>
-            </div>
+          </div>
+          <hr/>
+          <div className="Maps">
+            <h3>Map</h3>
+            <div className="Details_Map">
+                <MyFancyComponent/>
+              </div>
           </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ class ResultsCard extends Component {
 
   render() {
     return (
-      <Link to="/Details">
+      <Link to="/Details" style={{ textDecoration: 'none' }}>
         <div className="resultsCard" onClick={this.showDetails}>
             <img src={this.props.cardImg} alt="card_img" className="card_img" />
 

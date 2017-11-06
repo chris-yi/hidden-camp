@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getListings } from "../../ducks/reducer";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import MyFancyComponent from "../Map/Map";
 import "./Results.css";
 
 
@@ -51,7 +52,7 @@ class Results extends Component {
                     </div>
                 </div>
                 <div className="Map">
-                    <div className="Map_Text">MAP</div>
+                    <MyFancyComponent/>
                 </div>
             </div>
             <div>

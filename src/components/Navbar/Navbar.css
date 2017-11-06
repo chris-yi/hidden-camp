@@ -1,3 +1,4 @@
+
 .navbar {
   /* background-color: #ffffff; */
   background-color: rgba(0, 0, 0, 0.2);
@@ -7,7 +8,7 @@
   text-decoration: none;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .navbar a {
