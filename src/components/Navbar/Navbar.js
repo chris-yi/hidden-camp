@@ -16,6 +16,7 @@ class Navbar extends Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.search = this.search.bind(this);
+    this.profile = this.profile.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,14 @@ class Navbar extends Component {
       console.log("This is the city results:" + results.data);
       this.props.getCityListings(results.data);
     });
+  }
+
+  profile() {
+    if(this.props.user) {
+      return <img src={this.props.user.img} alt="profile-img" className="profile-img"/>
+    } else {
+      return <p className="login nav-button">LOGIN</p>
+    }
   }
 
   render() {
@@ -61,7 +70,7 @@ class Navbar extends Component {
           </div>
           <div className="Login_main">
             <a href="http://localhost:8080/auth">
-              <p className="login nav-button">LOGIN</p>
+              {this.profile()}
             </a>
           </div>
         </div>
@@ -74,7 +83,10 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-  return state;
+return {
+  state,
+  user: state.user
+}
 };
 
 export default connect(mapStateToProps, { getCityListings, getUserInfo })(Navbar);

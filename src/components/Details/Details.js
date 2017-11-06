@@ -67,14 +67,6 @@ class Details extends Component {
         window.location.href = "http://localhost:8080/auth"
       })
     } else {
-      axios.post(`/api/booking/`, {
-        user_id: this.props.user.user_id,
-        listing_id: this.state.listing[0].listing_id,
-        check_in_date: this.state.check_in_date,
-        check_out_date: this.state.check_out_date,
-        total_cost: this.state.listing[0].price_per_night,
-        host_id: this.state.listing[0].host_id
-      })
       swal({
         title: "Please confirm your Booking!",
         // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
@@ -90,6 +82,14 @@ class Details extends Component {
             text: "Your request has been sent to the Host!",
             icon: "success"
           });
+          axios.post(`/api/booking/`, {
+            user_id: this.props.user.user_id,
+            listing_id: this.state.listing[0].listing_id,
+            check_in_date: this.state.check_in_date,
+            check_out_date: this.state.check_out_date,
+            total_cost: this.state.listing[0].price_per_night,
+            host_id: this.state.listing[0].host_id
+          })
         } else {
           swal({
             title: "Ok, please re-submit when you're ready!",

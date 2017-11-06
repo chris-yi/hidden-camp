@@ -27,6 +27,12 @@
 
 .Login_main {
   width: 316px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Login_main a {
+  width: 70px;
 }
 
 .Login_main :hover {
@@ -46,6 +52,14 @@
   font-size: 15px;
   letter-spacing: 1px;
   text-align: right;
+}
+
+.profile-img {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  margin-top: 18px;
+
 }
 
 .search-bar {
