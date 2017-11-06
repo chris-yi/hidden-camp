@@ -24,6 +24,8 @@
     "react-scripts": "1.0.14",
     "redux": "^3.7.2",
     "redux-promise-middleware": "^4.4.1",
+    "simple-react-form": "^2.0.1",
+    "simple-react-form-material-ui": "^1.7.13",
     "sweetalert": "^2.0.8"
   },
   "scripts": {

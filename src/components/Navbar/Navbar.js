@@ -2,16 +2,19 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getCityListings, getUserInfo} from "../../ducks/reducer";
+import { getCityListings, getUserInfo } from "../../ducks/reducer";
 import "./Navbar.css";
 import logo2med from "../../Assets/2medium.png";
+import Drawer from "material-ui/Drawer";
+import MenuItem from 'material-ui/MenuItem';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searchTerm: ""
+      searchTerm: "",
+      open: false
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -19,9 +22,13 @@ class Navbar extends Component {
     this.profile = this.profile.bind(this);
   }
 
+  handleToggle = () => this.setState({ open: !this.state.open });
+
+  handleClose = () => this.setState({ open: false });
+
   componentDidMount() {
     this.props.getUserInfo();
-}
+  }
 
   handleInput(e) {
     this.setState({ searchTerm: e.target.value });
@@ -35,10 +42,44 @@ class Navbar extends Component {
   }
 
   profile() {
-    if(this.props.user) {
-      return <img src={this.props.user.img} alt="profile-img" className="profile-img"/>
+    if (this.props.user) {
+      return (
+        <div className="Toggle-Menu">
+          <img
+            src={this.props.user.img}
+            alt="profile-img"
+            className="profile-img"
+            onClick={this.handleToggle}
+          />
+          <Drawer
+            docked={false}
+            width={300}
+            open={this.state.open}
+            openSecondary={true}
+            onRequestChange={open => this.setState({ open })}
+            containerClassName="drawer"
+          >
+            <Link to="/" className="link">
+              <MenuItem onClick={this.handleClose} className="menu-item">
+                Home
+                <hr className="toggle-line"/>
+              </MenuItem>
+            </Link>
+            <Link to="/about" className="link">
+              <MenuItem onClick={this.handleClose} className="menu-item">
+                About
+                <hr className="toggle-line"/>
+              </MenuItem>
+            </Link>
+          </Drawer>
+        </div>
+      );
     } else {
-      return <p className="login nav-button">LOGIN</p>
+      return (
+        <a href="http://localhost:8080/auth" className="login-text">
+          <p className="login nav-button">LOGIN</p>
+        </a>
+      );
     }
   }
 
@@ -68,11 +109,7 @@ class Navbar extends Component {
               <img className="Logo" src={logo2med} alt="logo" />
             </a>
           </div>
-          <div className="Login_main">
-            <a href="http://localhost:8080/auth">
-              {this.profile()}
-            </a>
-          </div>
+          <div className="Login_Toggle">{this.profile()}</div>
         </div>
         {/* <div className="navbar_texture">
                         <img className="texture" src={texture} alt="texture"/>
@@ -83,10 +120,12 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => {
-return {
-  state,
-  user: state.user
-}
+  return {
+    state,
+    user: state.user
+  };
 };
 
-export default connect(mapStateToProps, { getCityListings, getUserInfo })(Navbar);
+export default connect(mapStateToProps, { getCityListings, getUserInfo })(
+  Navbar
+);
