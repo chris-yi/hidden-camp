@@ -43,6 +43,7 @@ class Details extends Component {
     this.getListing();
   };
 
+
   getListing() {
     const listing = this.props.allListings.filter(e => {
       return e.listing_id === this.props.listingID;
@@ -54,39 +55,53 @@ class Details extends Component {
 
   // TO BOOK A LISTING
   postBooking() {
-    axios.post(`/api/booking/`, {
-      user_id: this.state.user_id,
-      listing_id: this.state.listing[0].listing_id,
-      check_in_date: this.state.check_in_date,
-      check_out_date: this.state.check_out_date,
-      total_cost: this.state.listing[0].price_per_night,
-      host_id: this.state.listing[0].host_id
-    })
-    swal({
-      title: "Please confirm your Booking!",
-      // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
-      text: `Total: $${this.state.listing[0].price_per_night * 3}`,
-      icon: "info",
-      buttons: true,
-      dangerMode: false
-      ,
-    })
-    
-    
-    .then((confirm) => {
-      if (confirm) {
-        swal({
-          title: "Thank you!",
-          text: "Your request has been sent to the Host!",
-          icon: "success"
-        });
-      } else {
-        swal({
-          title: "Ok, please re-submit when you're ready!",
-          icon: "warning"
-        });
-      }
-    });
+    if(!this.props.user) {
+      swal({
+        title: "Please Signup/Login Before Booking!",
+        // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
+        icon: "warning",
+        buttons: true,
+        dangerMode: false
+      })
+      .then(() => {
+        window.location.href = "http://localhost:8080/auth"
+      })
+    } else {
+      axios.post(`/api/booking/`, {
+        user_id: this.props.user.user_id,
+        listing_id: this.state.listing[0].listing_id,
+        check_in_date: this.state.check_in_date,
+        check_out_date: this.state.check_out_date,
+        total_cost: this.state.listing[0].price_per_night,
+        host_id: this.state.listing[0].host_id
+      })
+      swal({
+        title: "Please confirm your Booking!",
+        // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
+        text: `Total: $${this.state.listing[0].price_per_night * 3}`,
+        icon: "info",
+        buttons: true,
+        dangerMode: false
+      })
+      .then((confirm) => {
+        if (confirm) {
+          swal({
+            title: "Thank you!",
+            text: "Your request has been sent to the Host!",
+            icon: "success"
+          });
+        } else {
+          swal({
+            title: "Ok, please re-submit when you're ready!",
+            icon: "warning"
+          });
+        }
+      });
+    }
+
+
+
+
   }
 
   // AMENITIES ICON DISPLAY //
@@ -361,7 +376,8 @@ class Details extends Component {
 function mapStateToProps(state) {
   return {
     allListings: state.allListings,
-    listingID: state.listingID
+    listingID: state.listingID,
+    user: state.user
   };
 }
 

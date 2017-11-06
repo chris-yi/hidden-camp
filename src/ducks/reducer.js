@@ -1,8 +1,9 @@
-// import axios from "axios";
+import axios from "axios";
 
 const initialState = {
   listingID: null,
-  allListings: []
+  allListings: [],
+  user: {}
 };
 
 const GET_ALL_LISTINGS = "GET_ALL_LISTINGS";
@@ -23,6 +24,18 @@ const GET_CITY_LISTINGS = "GET_CITY_LISTINGS";
 //     payload: listing
 //   }
 // }
+
+const GET_USER_INFO = "GET_USER_INFO";
+
+// Get user info
+
+export function getUserInfo() {
+  const user = axios.get("/auth/me").then(res => res.data);
+  return {
+    type: GET_USER_INFO,
+    payload: user
+  };
+}
 
 // Get all initial listings
 export function getListings(listings) {
@@ -88,8 +101,6 @@ export function updateListingID(id) {
   };
 }
 
-
-
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     // USE BELOW TO DISPLAY RESULTS ON SAME PAGE
@@ -114,6 +125,9 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { listingID: action.payload });
     case GET_CITY_LISTINGS:
       return Object.assign({}, state, { allListings: action.payload });
+    case GET_USER_INFO + "_FULFILLED":
+      // Do something here
+      return Object.assign({}, state, { user: action.payload });
     default:
       return state;
   }

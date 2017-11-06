@@ -1,35 +1,37 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {getCityListings} from "../../ducks/reducer";
+import { getCityListings, getUserInfo} from "../../ducks/reducer";
 import "./Navbar.css";
 import logo2med from "../../Assets/2medium.png";
 
 class Navbar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state={
-        searchTerm: ""
-    }
+    this.state = {
+      searchTerm: ""
+    };
 
-    this.handleInput = this.handleInput.bind(this)
-    this.search = this.search.bind(this)
-
+    this.handleInput = this.handleInput.bind(this);
+    this.search = this.search.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getUserInfo();
+}
+
   handleInput(e) {
-      this.setState({searchTerm: e.target.value})
+    this.setState({ searchTerm: e.target.value });
   }
 
   search() {
     axios.get(`/api/listings/city/${this.state.searchTerm}`).then(results => {
-        console.log("This is the city results:" + results.data);
-        this.props.getCityListings(results.data)
+      console.log("This is the city results:" + results.data);
+      this.props.getCityListings(results.data);
     });
   }
-
 
   render() {
     return (
@@ -43,13 +45,17 @@ class Navbar extends Component {
               value={this.state.searchTerm}
             />
             <Link to="/Results">
-            <button className="search-button" type="submit" onClick={this.search}>
-              <i className="fa fa-search" aria-hidden="true" />
-            </button>
+              <button
+                className="search-button"
+                type="submit"
+                onClick={this.search}
+              >
+                <i className="fa fa-search" aria-hidden="true" />
+              </button>
             </Link>
           </div>
           <div className="Logo_Main">
-            <a href="http://localhost:3000/Home/">
+            <a href="http://localhost:3000/">
               <img className="Logo" src={logo2med} alt="logo" />
             </a>
           </div>
@@ -67,8 +73,8 @@ class Navbar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-    return state;
-}
+const mapStateToProps = state => {
+  return state;
+};
 
-export default connect (mapStateToProps, {getCityListings})(Navbar);
+export default connect(mapStateToProps, { getCityListings, getUserInfo })(Navbar);
