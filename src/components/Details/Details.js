@@ -11,9 +11,9 @@ import {
   onClickThumb
 } from "react-responsive-carousel";
 import DateTimePicker from 'material-ui-datetimepicker';
+import DatePicker from 'material-ui/DatePicker';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Footer from "../Footer/Footer";
 import MyFancyComponent from "../Map/Map";
 import swal from 'sweetalert'
@@ -221,7 +221,9 @@ class Details extends Component {
     }
   }
 
-  setCheckIn = (check_in_date) => this.setState({ check_in_date })
+  setCheckIn = (check_in_date) => {
+    this.setState({ check_in_date })
+  }
   setCheckOut = (check_out_date) => this.setState({ check_out_date })
 
 
@@ -292,7 +294,6 @@ class Details extends Component {
               </div>
               <div className="Date_Picker_Main">
               <div classNAme="Date_Picker">
-                <MuiThemeProvider>
                   <DateTimePicker 
                     onChange={this.setCheckIn}
                     DatePicker={DatePickerDialog}
@@ -317,7 +318,6 @@ class Details extends Component {
                     fullWidth={false}
                     clearIcon={null}
                     />
-                </MuiThemeProvider>
                 </div>
               </div>
             </div>

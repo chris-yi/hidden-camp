@@ -1,0 +1,33 @@
+.Profile_Container {
+    height: 100%;
+    width: 100%;
+    padding-top: 100px;
+    font-family: "Lato", sans-serif;
+}
+
+.Profile_Img {
+    width: 150px;
+    height: 150px;
+}
+
+.Listing_Booking {
+    display: flex;
+}
+
+.My_Listings {
+    border: 1px solid black;
+    width: 300px;
+    height: 100%;
+}
+
+.Requests {
+    border: 1px solid black;
+    width: 300px;
+    height: 100%;
+}
+
+.Trips {
+    border: 1px solid black;
+    width: 300px;
+    height: 500px;
+}

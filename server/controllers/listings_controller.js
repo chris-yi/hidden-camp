@@ -97,6 +97,26 @@ module.exports = {
       .catch(err => res.status(500).send(err));
   },
 
+  getRequests: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_requests([params.id])
+      .then(results => res.status(200).send(results))
+      .catch(err => res.status(500).send(err));
+  },
+
+  getTrips: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_trips([params.id])
+      .then(results => res.status(200).send(results))
+      .catch(err => res.status(500).send(err));
+  },
+
   // ***** USER ***** //
   // Get all listings
   getAll: (req, res, next) => {

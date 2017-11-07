@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Results from "./components/Results/Results";
 import Create from "./components/CreateListing/CreateListing";
 import Details from "./components/Details/Details";
+import MyProfile from "./components/MyProfile/MyProfile";
 import MyFancyComponent from "./components/Map/Map";
 
 
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path="/Results" component={Results}/>
         <Route path="/Create" component={Create}/>
         <Route path="/Details" component={Details}/>
+        <Route path="/MyProfile" component={MyProfile}/>
         <Route path="/Map" component={MyFancyComponent}/>
       </div>
     );

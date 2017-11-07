@@ -71,6 +71,12 @@ class Navbar extends Component {
                 <hr className="toggle-line"/>
               </MenuItem>
             </Link>
+            <Link to="/MyProfile" className="link">
+              <MenuItem onClick={this.handleClose} className="menu-item">
+                My Profile
+                <hr className="toggle-line"/>
+              </MenuItem>
+            </Link>
           </Drawer>
         </div>
       );

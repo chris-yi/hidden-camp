@@ -3,10 +3,16 @@ import axios from "axios";
 const initialState = {
   listingID: null,
   allListings: [],
+  hostListings: [],
+  requests: [],
+  trips: [],
   user: {}
 };
 
 const GET_ALL_LISTINGS = "GET_ALL_LISTINGS";
+const GET_HOST_LISTINGS = "GET_HOST_LISTINGS";
+const GET_REQUESTS = "GET_REQUESTS";
+const GET_TRIPS = "GET_TRIPS";
 const GET_ALL_MOUNTAINS = "GET_ALL_MOUNTAINS";
 const GET_ALL_OCEANFRONT = "GET_ALL_OCEANFRONT";
 const GET_ALL_LAKEVIEW = "GET_ALL_LAKEVIEW";
@@ -41,6 +47,27 @@ export function getUserInfo() {
 export function getListings(listings) {
   return {
     type: GET_ALL_LISTINGS,
+    payload: listings
+  };
+}
+
+export function getHostListings(listings) {
+  return {
+    type: GET_HOST_LISTINGS,
+    payload: listings
+  };
+}
+
+export function getRequests(listings) {
+  return {
+    type: GET_REQUESTS,
+    payload: listings
+  };
+}
+
+export function getTrips(listings) {
+  return {
+    type: GET_TRIPS,
     payload: listings
   };
 }
@@ -109,6 +136,12 @@ export default function reducer(state = initialState, action) {
 
     case GET_ALL_LISTINGS:
       return Object.assign({}, state, { allListings: action.payload });
+    case GET_HOST_LISTINGS:
+      return Object.assign({}, state, { hostListings: action.payload });
+      case GET_REQUESTS:
+      return Object.assign({}, state, { requests: action.payload });
+      case GET_TRIPS:
+      return Object.assign({}, state, { trips: action.payload });
     case GET_ALL_MOUNTAINS:
       return Object.assign({}, state, { allListings: action.payload });
     case GET_ALL_OCEANFRONT:

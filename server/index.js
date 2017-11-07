@@ -99,10 +99,15 @@ app.post("/api/listing", listings_controller.createListing);
 app.post("/api/booking", listings_controller.createBooking);
 
 // ****** Get listing results ****** //
-// GET ALL HOST LISTINGS (HOST)
-app.get("/api/hostlistings/:id", listings_controller.getHostListings);
+
 // GET ALL LISTINGS (USER)
 app.get("/api/listings", listings_controller.getAll);
+// GET ALL HOST LISTINGS (HOST)
+app.get("/api/hostlistings/:id", listings_controller.getHostListings);
+// GET ALL HOST REQUESTS
+app.get("/api/requests/:id",listings_controller.getRequests);
+// GET ALL TRIPS
+app.get("/api/trips/:id",listings_controller.getTrips);
 // GET LISTINGS BY ZIP
 app.get("/api/listings/zip/:id", listings_controller.getByZip);
 // GET LISTINGS BY STATE
