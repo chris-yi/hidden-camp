@@ -1,0 +1,11 @@
+.My_Listings_Container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.Listing_Img {
+    width: 120px;
+    height: 120px;
+}

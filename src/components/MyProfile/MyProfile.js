@@ -32,6 +32,7 @@ class MyProfile extends Component {
           return (
             <MyListingsCard
               key={i}
+              listingImg={e.img_1}
               listingName={e.listing_name}
               listingID={e.listing_id}
               city={e.city}
@@ -51,6 +52,8 @@ class MyProfile extends Component {
             <MyRequestsCard
               key={i}
               userID={e.user_id}
+              img={e.img_1}
+              listingName={e.listing_name}
               checkInDate={e.check_in_date}
               checkOutDate={e.check_out_date}
               pending={e.pending}
@@ -66,10 +69,11 @@ class MyProfile extends Component {
           return (
             <MyTripsCard
               key={i}
-              hostID={e.host_id}
+              tripsImg={e.img_1}
+              listingName={e.listing_name}
               checkInDate={e.check_in_date}
               checkOutDate={e.check_out_date}
-              pending={e.pending}
+              pending={String(e.pending)}
               totalCost={e.total_cost}
             />
           );
@@ -89,6 +93,7 @@ class MyProfile extends Component {
               className="Profile_Img"
             />
             <h1>{this.props.user.user_name}</h1>
+            <button>My Listings</button>
           </div>
           <div className="Listing_Booking">
             <div className="My_Listings">

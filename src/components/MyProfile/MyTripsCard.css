@@ -1,0 +1,11 @@
+.Trips_Container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.Trips_Img {
+    width: 120px;
+    height: 120px;
+}

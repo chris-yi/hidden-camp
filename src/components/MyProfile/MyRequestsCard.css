@@ -1,0 +1,11 @@
+.Request_Container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.Request_Img {
+    width: 120px;
+    height: 120px;
+}
