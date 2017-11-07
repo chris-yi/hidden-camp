@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getCityListings, getUserInfo } from "../../ducks/reducer";
 import "./Navbar.css";
 import logo2med from "../../Assets/2medium.png";
+import newLogo from "../../Assets/newResized.png";
 import Drawer from "material-ui/Drawer";
 import MenuItem from 'material-ui/MenuItem';
 
@@ -51,6 +52,7 @@ class Navbar extends Component {
             className="profile-img"
             onClick={this.handleToggle}
           />
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
           <Drawer
             docked={false}
             width={300}
@@ -112,7 +114,7 @@ class Navbar extends Component {
           </div>
           <div className="Logo_Main">
             <a href="http://localhost:3000/">
-              <img className="Logo" src={logo2med} alt="logo" />
+              <img className="Logo" src={newLogo} alt="logo" />
             </a>
           </div>
           <div className="Login_Toggle">{this.profile()}</div>

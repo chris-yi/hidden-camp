@@ -9,6 +9,7 @@
   position: fixed;
   width: 100%;
   z-index: 9999;
+  height: 73px;
 }
 
 .navbar a {
@@ -82,6 +83,11 @@
   width: 42px;
   border-radius: 50%;
   margin-top: 18px;
+  margin-right: 3px;
+}
+
+.fa-caret-down {
+  margin-top: 29px;
   margin-right: 24px;
 }
 
