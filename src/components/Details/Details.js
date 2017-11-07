@@ -110,7 +110,7 @@ class Details extends Component {
     if (this.state.listing[0].fires) {
       return (
         <div>
-          Fire: <i class="fa fa-fire" aria-hidden="true" />
+          Fire: <i className="fa fa-fire" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -126,7 +126,7 @@ class Details extends Component {
     if (this.state.listing[0].potable_water) {
       return (
         <div>
-          Potable Water: <i class="fa fa-tint" aria-hidden="true" />
+          Potable Water: <i className="fa fa-tint" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -142,7 +142,7 @@ class Details extends Component {
     if (this.state.listing[0].pets) {
       return (
         <div>
-          Pets: <i class="fa fa-paw" aria-hidden="true" />
+          Pets: <i className="fa fa-paw" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -159,8 +159,8 @@ class Details extends Component {
       return (
         <div>
           Toilets:{" "}
-          <i class="fa fa-male" aria-hidden="true">
-            <i class="fa fa-female" aria-hidden="true" />
+          <i className="fa fa-male" aria-hidden="true">
+            <i className="fa fa-female" aria-hidden="true" />
           </i>
         </div>
       );
@@ -177,7 +177,7 @@ class Details extends Component {
     if (this.state.listing[0].trash) {
       return (
         <div>
-          Trash: <i class="fa fa-trash" aria-hidden="true" />
+          Trash: <i className="fa fa-trash" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -193,7 +193,7 @@ class Details extends Component {
     if (this.state.listing[0].showers) {
       return (
         <div>
-          Showers: <i class="fa fa-bath" aria-hidden="true" />
+          Showers: <i className="fa fa-bath" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -209,7 +209,7 @@ class Details extends Component {
     if (this.state.listing[0].showers) {
       return (
         <div>
-          Wifi: <i class="fa fa-wifi" aria-hidden="true" />
+          Wifi: <i className="fa fa-wifi" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
@@ -293,7 +293,7 @@ class Details extends Component {
                 <p className="Location_Details">{details.description}</p>
               </div>
               <div className="Date_Picker_Main">
-              <div classNAme="Date_Picker">
+              <div className="Date_Picker">
                   <DateTimePicker 
                     onChange={this.setCheckIn}
                     DatePicker={DatePickerDialog}

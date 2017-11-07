@@ -52,7 +52,7 @@ class Navbar extends Component {
             className="profile-img"
             onClick={this.handleToggle}
           />
-          <i class="fa fa-caret-down" aria-hidden="true"></i>
+          <i className="fa fa-caret-down" aria-hidden="true"></i>
           <Drawer
             docked={false}
             width={300}

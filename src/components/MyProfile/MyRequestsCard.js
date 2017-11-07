@@ -10,7 +10,7 @@ class MyRequestsCard extends Component {
 
   render() {
     return (
-        <div className="Request_Container">
+        <div className="My_Request_Container">
         <div className="Request_Img_Container">
             <img src={this.props.img} alt="request_img" className="Request_Img"/>
         </div>

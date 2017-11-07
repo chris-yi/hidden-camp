@@ -2,22 +2,31 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./MyListingsCard.css";
 import axios from "axios";
-import {getHostListings} from "../../ducks/reducer";
+import { Link } from "react-router-dom";
+import {getHostListings, updateListingID} from "../../ducks/reducer";
+
 
 class MyListingsCard extends Component {
     constructor(props) {
         super(props)
         
         this.deleteListing = this.deleteListing.bind(this);
+        // this.updateListing = this.updateListing.bind(this);
     }
 
     deleteListing() {
         axios.delete(`/api/listing/${this.props.listingID}`).then(() => {
+            // To re render the page to show the deletion
             axios.get(`/api/hostlistings/${this.props.user.user_id}`).then(results => {
                 this.props.getHostListings(results.data);
               });
         })
     }
+
+    // updateListing(){
+    //     console.log(this.props.listingID)
+    //     this.props.updateListingID(this.props.listingID)
+    // }
 
   render() {
     return (
@@ -31,7 +40,7 @@ class MyListingsCard extends Component {
             <p>{this.props.state}</p>
         </div>
         <div>
-            <button>Update</button>
+            <Link to={`/UpdateListing/${this.props.listingID}`}><button>Update</button></Link>
             <button onClick={this.deleteListing}>Delete</button>
         </div>
         </div>
@@ -46,4 +55,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {getHostListings})(MyListingsCard);
+export default connect(mapStateToProps, {getHostListings, updateListingID})(MyListingsCard);

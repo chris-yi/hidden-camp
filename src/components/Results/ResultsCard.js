@@ -14,7 +14,6 @@ class ResultsCard extends Component {
     showDetails(){
         console.log(this.props.listingID)
         this.props.updateListingID(this.props.listingID)
-
     }
 
   render() {

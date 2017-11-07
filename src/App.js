@@ -7,6 +7,7 @@ import Create from "./components/CreateListing/CreateListing";
 import Details from "./components/Details/Details";
 import MyProfile from "./components/MyProfile/MyProfile";
 import MyFancyComponent from "./components/Map/Map";
+import UpdateListing from "./components/UpdateListing/UpdateListing";
 
 
 
@@ -22,6 +23,7 @@ class App extends Component {
         <Route path="/Details" component={Details}/>
         <Route path="/MyProfile" component={MyProfile}/>
         <Route path="/Map" component={MyFancyComponent}/>
+        <Route path="/UpdateListing/:id" component={UpdateListing}/>
       </div>
     );
   }
