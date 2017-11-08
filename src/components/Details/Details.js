@@ -351,7 +351,7 @@ class Details extends Component {
               <div className="Details">
                 <p>Max Campers: {details.max_campers}</p>
                 <p>Minimum Nights stay: {details.min_night_stay}</p>
-                <p>Category: {details.Category}</p>
+                <p>Category: {details.category}</p>
                 <p>Check-in: {details.check_in_time}</p>
                 <p>Check-out: {details.check_out_time}</p>
               </div>

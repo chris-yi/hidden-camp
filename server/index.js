@@ -121,6 +121,9 @@ app.get("/api/listing/:id", listings_controller.getByListingId);
 
 // ****** Update a listing ****** //
 app.put("/api/listing/:id", listings_controller.updateListing);
+// ****** Host approves request ****** //
+app.put("/api/approve/:id", listings_controller.approveRequest);
+
 
 // ****** Delete a listing ****** //
 app.delete("/api/listing/:id", listings_controller.deleteListing);

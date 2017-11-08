@@ -5,6 +5,10 @@
     font-family: "Lato", sans-serif;
 }
 
+.Avatar {
+    display: flex;
+}
+
 .Profile_Img {
     width: 150px;
     height: 150px;

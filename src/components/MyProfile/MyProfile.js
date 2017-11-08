@@ -4,9 +4,8 @@ import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import axios from "axios";
 import { getHostListings, getRequests, getTrips } from "../../ducks/reducer";
-import MyListingsCard from "./MyListingsCard";
-import MyRequestsCard from "./MyRequestsCard";
 import MyTripsCard from "./MyTripsCard";
+import { Link } from "react-router-dom";
 import "./MyProfile.css";
 
 class MyProfile extends Component {
@@ -27,41 +26,7 @@ class MyProfile extends Component {
   }
 
   render() {
-    const hostListingsArr = this.props.hostListings
-      ? this.props.hostListings.map((e, i) => {
-          return (
-            <MyListingsCard
-              key={i}
-              listingImg={e.img_1}
-              listingName={e.listing_name}
-              listingID={e.listing_id}
-              city={e.city}
-              state={e.state}
-              pricePerNight={e.price_per_night}
-              maxCampers={e.max_campers}
-              category={e.category}
-              cardImg={e.img_1}
-            />
-          );
-        })
-      : null;
 
-    const requestsArr = this.props.requests
-      ? this.props.requests.map((e, i) => {
-          return (
-            <MyRequestsCard
-              key={i}
-              userID={e.user_id}
-              img={e.img_1}
-              listingName={e.listing_name}
-              checkInDate={e.check_in_date}
-              checkOutDate={e.check_out_date}
-              pending={e.pending}
-              totalCost={e.total_cost}
-            />
-          );
-        })
-      : null;
 
       const tripsArr = this.props.trips
       ? this.props.trips.map((e, i) => {
@@ -73,7 +38,7 @@ class MyProfile extends Component {
               listingName={e.listing_name}
               checkInDate={e.check_in_date}
               checkOutDate={e.check_out_date}
-              pending={String(e.pending)}
+              pending={e.pending}
               totalCost={e.total_cost}
             />
           );
@@ -87,22 +52,37 @@ class MyProfile extends Component {
         </div>
         <div className="Profile_Container">
           <div className="Avatar">
+            <div className="Avatar_Img_Container">
             <img
               src={this.props.user.img}
               alt="profile-img"
               className="Profile_Img"
             />
-            <h1>{this.props.user.user_name}</h1>
+            </div>
+            <div className="Avatar_About">
+                <h1>{this.props.user.user_name}</h1>
+            </div>
+            
+            <Link to="/MyListings">
             <button>My Listings</button>
+            </Link>
+
+            <Link to="/MyRequests">
+            <button>Requests</button>
+            </Link>
+
+
+            
+
           </div>
           <div className="Listing_Booking">
             <div className="My_Listings">
               my listings
-              {hostListingsArr}
+              {/* {hostListingsArr} */}
             </div>
             <div className="Requests">
               Requests
-              {requestsArr}
+              {/* {requestsArr} */}
             </div>
             <div className="Trips">
               My Trips

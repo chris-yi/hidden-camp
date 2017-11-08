@@ -4,6 +4,7 @@ import "./MyListingsCard.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import {getHostListings, updateListingID} from "../../ducks/reducer";
+import swal from 'sweetalert'
 
 
 class MyListingsCard extends Component {
@@ -15,12 +16,39 @@ class MyListingsCard extends Component {
     }
 
     deleteListing() {
-        axios.delete(`/api/listing/${this.props.listingID}`).then(() => {
-            // To re render the page to show the deletion
-            axios.get(`/api/hostlistings/${this.props.user.user_id}`).then(results => {
-                this.props.getHostListings(results.data);
-              });
+        swal({
+            title: `Please confirm you want to delete listing: ${this.props.listingName}!`,
+            buttons: true,
+            dangerMode: false
         })
+        .then((confirm) => {
+            if(confirm) {
+                swal({
+                    title: "Your listing has been deleted",
+                    icon: "success"
+                });
+
+        
+                axios.delete(`/api/listing/${this.props.listingID}`).then(() => {
+                    // To re render the page to show the deletion
+                    axios.get(`/api/hostlistings/${this.props.user.user_id}`).then(results => {
+                        this.props.getHostListings(results.data);
+                      });
+                })
+
+            } else {
+                swal({
+                    title: "Ok, please re-submit when you're ready!",
+                    icon: "warning"
+                  });
+            }
+        })
+
+
+
+
+
+
     }
 
     // updateListing(){

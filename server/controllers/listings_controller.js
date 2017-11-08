@@ -231,6 +231,18 @@ module.exports = {
       .catch(err => res.status(500).send(err));
   },
 
+  // Approve Request
+  approveRequest: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+    console.log(params.id)
+    dbInstance
+    .approve_request([params.id])
+    .then(() => res.status(200).send())
+    .catch(err => res.status(500).send(err));
+  
+},
+
   // Delete a listing by ID
   deleteListing: (req, res, next) => {
     const dbInstance = req.app.get("db");

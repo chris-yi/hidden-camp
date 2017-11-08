@@ -6,7 +6,17 @@ class MyTripsCard extends Component {
     constructor(props) {
         super(props)
         
+        this.pendingTrip = this.pendingTrip.bind(this)
     }
+
+          // To display users pending trips
+          pendingTrip() {
+            if (this.props.pending) {
+                return (
+                    <div>Still waiting on Host's approval</div>
+                )
+            }
+        }
 
   render() {
     return (
@@ -18,8 +28,8 @@ class MyTripsCard extends Component {
                 <h3>{this.props.listingName}</h3>
                 <p>{this.props.checkInDate}</p>
                 <p>{this.props.checkOutDate}</p>
-                <p>{this.props.pending}</p>
                 <p>{this.props.totalCost}</p>
+                {this.pendingTrip()}
             </div>
         </div>
       
