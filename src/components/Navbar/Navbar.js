@@ -113,9 +113,9 @@ class Navbar extends Component {
             </Link>
           </div>
           <div className="Logo_Main">
-            <a href={process.env.SUCCESSREDIRECT}>
+          <Link to="/">
               <img className="Logo" src={newLogo} alt="logo" />
-            </a>
+          </Link>
           </div>
           <div className="Login_Toggle">{this.profile()}</div>
         </div>
