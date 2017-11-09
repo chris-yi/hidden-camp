@@ -113,7 +113,7 @@ class Navbar extends Component {
             </Link>
           </div>
           <div className="Logo_Main">
-            <a href="http://localhost:3000/">
+            <a href={process.env.SUCCESSREDIRECT}>
               <img className="Logo" src={newLogo} alt="logo" />
             </a>
           </div>
