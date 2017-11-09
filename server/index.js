@@ -9,6 +9,8 @@ const massive = require("massive");
 const listings_controller = require("./controllers/listings_controller");
 
 const app = express();
+
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(bodyParser.json());
 app.use(cors());
 
