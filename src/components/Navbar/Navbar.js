@@ -84,7 +84,7 @@ class Navbar extends Component {
       );
     } else {
       return (
-        <a href="http://localhost:8080/auth" className="login-text">
+        <a href={process.env.REACT_APP_LOGIN} className="login-text">
           <p className="login nav-button">LOGIN</p>
         </a>
       );
