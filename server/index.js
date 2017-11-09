@@ -7,6 +7,7 @@ const passport = require("passport");
 const Auth0Strategy = require("passport-auth0");
 const massive = require("massive");
 const listings_controller = require("./controllers/listings_controller");
+const path = require('path');
 
 const app = express();
 
@@ -129,6 +130,11 @@ app.put("/api/approve/:id", listings_controller.approveRequest);
 
 // ****** Delete a listing ****** //
 app.delete("/api/listing/:id", listings_controller.deleteListing);
+
+
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 const PORT = 8080;
 app.listen(PORT, () => {
