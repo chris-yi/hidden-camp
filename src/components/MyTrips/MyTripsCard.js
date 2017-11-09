@@ -15,6 +15,11 @@ class MyTripsCard extends Component {
                 return (
                     <div>Still waiting on Host's approval</div>
                 )
+            } else {
+                return (
+                    <div>Your trip has been approved!</div>
+                )
+                
             }
         }
 

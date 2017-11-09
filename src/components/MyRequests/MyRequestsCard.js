@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import {getRequests} from "../../ducks/reducer";
+import swal from 'sweetalert'
 import "./MyRequestsCard.css";
 
 class MyRequestsCard extends Component {
@@ -30,7 +32,14 @@ class MyRequestsCard extends Component {
 
   approveRequest() {
     axios.put(`/api/approve/${this.props.bookingID}`).then(() => {
-      console.log("Listing Updated");
+        swal({
+            title: "Request has been approved!",
+            icon: "success"
+        });
+      console.log("Listing Approved");
+      axios.get(`/api/requests/${this.props.user.user_id}`).then(results => {
+        this.props.getRequests(results.data);
+      });
     });
   }
 
@@ -55,7 +64,9 @@ class MyRequestsCard extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    user: state.user
+  };
 }
 
-export default connect(mapStateToProps, {})(MyRequestsCard);
+export default connect(mapStateToProps, {getRequests})(MyRequestsCard);
