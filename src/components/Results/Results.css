@@ -1,16 +1,18 @@
 
 .Results_Container {
     padding-top: 82px;
-    min-height: 300vh;
+    min-height: 200vh;
     font-family: 'Lato', sans-serif;
     background-color: #1B1E24;
+    margin-bottom: 500px;
 }
 
 .Results {
     float: left;
     overflow-y:auto;
     position: fixed;
-    min-height: 100vh;
+    height: calc(120vh - 75px);
+    margin-bottom: 2000px;
     width: 50%;
 }
 
