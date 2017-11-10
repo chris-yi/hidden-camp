@@ -92,7 +92,7 @@
 }
 
 .drawer {
-  background-color: #111111 !important;
+  background-color: rgba(0,0,0,0.8) !important;
   padding-top: 20px;
 }
 

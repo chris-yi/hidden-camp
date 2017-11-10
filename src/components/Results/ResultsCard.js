@@ -25,12 +25,12 @@ class ResultsCard extends Component {
           <ul className="card_info">
             <p className="site_name">{this.props.listingName}</p>
             <p>
-              in {this.props.city} | {this.props.state}
+              in {this.props.city.charAt(0).toUpperCase() + this.props.city.slice(1)} | {this.props.state}
             </p>
             <li>{this.props.state}</li>
             <li>${this.props.pricePerNight.toString()}/night</li>
             <li>Max Campers:{this.props.maxCampers}</li>
-            <li>Category: {this.props.category}</li>
+            <li>Category: {this.props.category ? this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1) : null}</li>
           </ul>
         </div>
       </Link>
