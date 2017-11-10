@@ -1,7 +1,7 @@
 
 .Results_Container {
     padding-top: 82px;
-    height: 2000px;
+    min-height: 300vh;
     font-family: 'Lato', sans-serif;
     background-color: #1B1E24;
 }
