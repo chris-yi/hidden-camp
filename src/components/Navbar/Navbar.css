@@ -92,17 +92,26 @@
 }
 
 .drawer {
-  background-color: #757575 !important;
+  background-color: #111111 !important;
+  padding-top: 20px;
 }
 
 .menu-item {
-  color: white !important;
+  color: #515151 !important;
   font-family: "Lato", sans-serif !important;
   text-transform: uppercase;
+  text-align: left;
+}
+
+.menu-item :hover {
+  text-decoration: none;
+  color: rgb(222, 222, 222);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .toggle-line {
-  color: #262626;
+  /* color: #262626; */
   margin: 0;
 }
 

@@ -64,19 +64,19 @@ class Navbar extends Component {
             <Link to="/" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 Home
-                <hr className="toggle-line"/>
+                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <Link to="/about" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 About
-                <hr className="toggle-line"/>
+                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <Link to="/MyProfile" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 My Profile
-                <hr className="toggle-line"/>
+                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
           </Drawer>
