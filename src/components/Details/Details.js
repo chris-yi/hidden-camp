@@ -10,18 +10,20 @@ import {
   onClickItem,
   onClickThumb
 } from "react-responsive-carousel";
-import DateTimePicker from 'material-ui-datetimepicker';
-import DatePicker from 'material-ui/DatePicker';
-import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
-import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
+// import DateTimePicker from 'material-ui-datetimepicker';
+// import DatePicker from 'material-ui/DatePicker';
+// import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
+// import TimePickerDialog from 'material-ui/TimePicker/TimePickerDialog';
+
+import DatePicker from "material-ui/DatePicker";
+
 import Footer from "../Footer/Footer";
 import MyFancyComponent from "../Map/Map";
-import swal from 'sweetalert'
-
+import swal from "sweetalert";
 
 class Details extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       listing: null,
@@ -31,18 +33,18 @@ class Details extends Component {
       check_out_date: null
       // total_cost: null,
       // host_id: null
-
     };
 
     this.getListing = this.getListing.bind(this);
     this.toilet = this.toilet.bind(this);
     this.postBooking = this.postBooking.bind(this);
+    this.handleCheckIn = this.handleCheckIn.bind(this);
+    this.handleCheckOut = this.handleCheckOut.bind(this);
   }
 
   componentWillMount = () => {
     this.getListing();
   };
-
 
   getListing() {
     const listing = this.props.allListings.filter(e => {
@@ -55,17 +57,16 @@ class Details extends Component {
 
   // TO BOOK A LISTING
   postBooking() {
-    if(!this.props.user) {
+    if (!this.props.user) {
       swal({
         title: "Please Signup/Login Before Booking!",
         // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
         icon: "warning",
         buttons: true,
         dangerMode: false
-      })
-      .then(() => {
-        window.location.href = process.env.REACT_APP_LOGIN
-      })
+      }).then(() => {
+        window.location.href = process.env.REACT_APP_LOGIN;
+      });
     } else {
       swal({
         title: "Please confirm your Booking!",
@@ -74,8 +75,7 @@ class Details extends Component {
         icon: "info",
         buttons: true,
         dangerMode: false
-      })
-      .then((confirm) => {
+      }).then(confirm => {
         if (confirm) {
           swal({
             title: "Thank you!",
@@ -89,7 +89,7 @@ class Details extends Component {
             check_out_date: this.state.check_out_date,
             total_cost: this.state.listing[0].price_per_night,
             host_id: this.state.listing[0].host_id
-          })
+          });
         } else {
           swal({
             title: "Ok, please re-submit when you're ready!",
@@ -98,10 +98,6 @@ class Details extends Component {
         }
       });
     }
-
-
-
-
   }
 
   // AMENITIES ICON DISPLAY //
@@ -221,11 +217,22 @@ class Details extends Component {
     }
   }
 
-  setCheckIn = (check_in_date) => {
-    this.setState({ check_in_date })
-  }
-  setCheckOut = (check_out_date) => this.setState({ check_out_date })
+  // setCheckIn = (check_in_date) => {
+  //   this.setState({ check_in_date })
+  // }
+  // setCheckOut = (check_out_date) => this.setState({ check_out_date })
 
+  handleCheckIn = (event, date) => {
+    this.setState({
+      check_in_date: date
+    });
+  };
+
+  handleCheckOut = (event, date) => {
+    this.setState({
+      check_out_date: date
+    });
+  };
 
   render() {
     console.log(this.state.listing);
@@ -264,37 +271,34 @@ class Details extends Component {
           </div>
         </div>
         <div className="Listing_Container">
-        <div className="Listing_Details">
-          <div className="Listing_Content">
-            <div className="Name_Price">
-              <div>
-                <h1 className="Listing_Name">{details.listing_name}</h1>
-              </div>
-              
-              <div className="Request_Container">
-
+          <div className="Listing_Details">
+            <div className="Listing_Content">
+              <div className="Name_Price">
                 <div>
-
-                  <h3 className="Request_Price">${details.price_per_night}</h3>
-
+                  <h1 className="Listing_Name">{details.listing_name}</h1>
                 </div>
-                <div className="Request_Button" onClick={this.postBooking}>
-                  <h3>Request to Book</h3>
+
+                <div className="Request_Container">
+                  <div>
+                    <h3 className="Request_Price">
+                      ${details.price_per_night}
+                    </h3>
+                  </div>
+                  <div className="Request_Button" onClick={this.postBooking}>
+                    <h3>Request to Book</h3>
+                  </div>
                 </div>
               </div>
-              
-
-            </div>
-            <div className="Location_Request">
-              <div>
-                <h4 className="Listing_City_State">
-                  {details.city}, {details.state}
-                </h4>
-                <p className="Location_Details">{details.description}</p>
-              </div>
-              <div className="Date_Picker_Main">
-              <div className="Date_Picker">
-                  <DateTimePicker 
+              <div className="Location_Request">
+                <div>
+                  <h4 className="Listing_City_State">
+                    {details.city}, {details.state}
+                  </h4>
+                  <p className="Location_Details">{details.description}</p>
+                </div>
+                <div className="Date_Picker_Main">
+                  <div className="Date_Picker">
+                    {/* <DateTimePicker 
                     onChange={this.setCheckIn}
                     DatePicker={DatePickerDialog}
                     TimePicker={TimePickerDialog}
@@ -317,57 +321,66 @@ class Details extends Component {
                     id="some-id"
                     fullWidth={false}
                     clearIcon={null}
+                    /> */}
+
+                    <DatePicker
+                      hintText="Check-In Date"
+                      onChange={this.handleCheckIn}
                     />
-                </div>
-              </div>
-            </div>
-            <hr />
-            <div className="Amenities">
-              <h3>Amenities</h3>
-              <div className="Amenities_Logo">
-                <div>
-                  <div>
-                    <h4>{this.fires()}</h4>
-                    <h4>{this.water()}</h4>
-                    <h4>{this.pets()}</h4>
-                    <h4>{this.toilet()} </h4>
+
+                    <DatePicker
+                      hintText="Check-Out Date"
+                      onChange={this.handleCheckOut}
+                    />
                   </div>
                 </div>
-                <div>
+              </div>
+              <hr />
+              <div className="Amenities">
+                <h3>Amenities</h3>
+                <div className="Amenities_Logo">
                   <div>
-                    <h4>{this.trash()}</h4>
-                    <h4>{this.showers()}</h4>
-                    <h4>{this.wifi()}</h4>
+                    <div>
+                      <h4>{this.fires()}</h4>
+                      <h4>{this.water()}</h4>
+                      <h4>{this.pets()}</h4>
+                      <h4>{this.toilet()} </h4>
+                    </div>
                   </div>
-                </div>
-                <div className="buffer">
+                  <div>
+                    <div>
+                      <h4>{this.trash()}</h4>
+                      <h4>{this.showers()}</h4>
+                      <h4>{this.wifi()}</h4>
+                    </div>
+                  </div>
+                  <div className="buffer" />
                 </div>
               </div>
-            </div>
-            <hr />
-          <div className="Details">
-            <h3>Details</h3>
-            <div className="Details_Info">
+              <hr />
               <div className="Details">
-                <p>Max Campers: {details.max_campers}</p>
-                <p>Minimum Nights stay: {details.min_night_stay}</p>
-                <p>Category: {details.category}</p>
-                <p>Check-in: {details.check_in_time}</p>
-                <p>Check-out: {details.check_out_time}</p>
+                <h3>Details</h3>
+                <div className="Details_Info">
+                  <div className="Details">
+                    <p>Max Campers: {details.max_campers}</p>
+                    <p>Minimum Nights stay: {details.min_night_stay}</p>
+                    <p>Category: {details.category}</p>
+                    <p>Check-in: {details.check_in_time}</p>
+                    <p>Check-out: {details.check_out_time}</p>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div className="Maps">
+                <h3>Map</h3>
+                <div className="Details_Map">
+                  <MyFancyComponent />
+                </div>
               </div>
             </div>
           </div>
-          <hr/>
-          <div className="Maps">
-            <h3>Map</h3>
-            <div className="Details_Map">
-                <MyFancyComponent/>
-              </div>
-          </div>
-          </div>
+          <Footer />
         </div>
-        <Footer />
-        </div>        
       </div>
     );
   }
