@@ -10,7 +10,7 @@
     float: left;
     overflow-y:auto;
     position: fixed;
-    height: calc(100vh - 75px);
+    min-height: 100vh;
     width: 50%;
 }
 
