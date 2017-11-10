@@ -113,15 +113,7 @@ class Home extends Component {
 
         <div className="categories">
           <div className="categories_header">
-            <h1>Explore</h1>
-            <p className="categories_p">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </p>
+            <h1>Categories</h1>
           </div>
 
           <section className="photogrids">
@@ -192,6 +184,10 @@ class Home extends Component {
             </div>
             </Link>
           </section>
+          <p className="categories_p">
+              Discover hidden camps on moutains, lakes, oceanfronts, and more across the U.S.
+            </p>
+
         </div>
         <Footer/>
       </div>

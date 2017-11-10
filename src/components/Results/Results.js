@@ -35,6 +35,13 @@ class Results extends Component {
                 maxCampers={e.max_campers}
                 category={e.category}
                 cardImg={e.img_1}
+                fire={e.fires}
+                water={e.potable_water}
+                pets={e.pets}
+                toilets={e.toilets}
+                trash={e.trash}
+                showers={e.showers}
+                wifi={e.wifi}
                 />
             )
         }) : null;

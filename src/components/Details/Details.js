@@ -105,13 +105,13 @@ class Details extends Component {
   fires() {
     if (this.state.listing[0].fires) {
       return (
-        <div>
+        <div className="Details_Icon">
           Fire: <i className="fa fa-fire" aria-hidden="true" />
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].fires) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Fires: Unavailable</strike>
         </div>
       );
@@ -121,13 +121,13 @@ class Details extends Component {
   water() {
     if (this.state.listing[0].potable_water) {
       return (
-        <div>
+        <div className="Details_Icon">
           Potable Water: <i className="fa fa-tint" aria-hidden="true" />
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].potable_water) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Water: Unavailable</strike>
         </div>
       );
@@ -137,13 +137,13 @@ class Details extends Component {
   pets() {
     if (this.state.listing[0].pets) {
       return (
-        <div>
+        <div className="Details_Icon">
           Pets: <i className="fa fa-paw" aria-hidden="true" />
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].pets) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Pets: Unavailable</strike>
         </div>
       );
@@ -153,16 +153,16 @@ class Details extends Component {
   toilet() {
     if (this.state.listing[0].toilets) {
       return (
-        <div>
+        <div className="Details_Icon">
           Toilets:{" "}
           <i className="fa fa-male" aria-hidden="true">
             <i className="fa fa-female" aria-hidden="true" />
           </i>
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].toilets) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Bathroom: Unavailable</strike>
         </div>
       );
@@ -172,13 +172,13 @@ class Details extends Component {
   trash() {
     if (this.state.listing[0].trash) {
       return (
-        <div>
+        <div className="Details_Icon">
           Trash: <i className="fa fa-trash" aria-hidden="true" />
         </div>
       );
     } else if (!this.state.listing[0].trash) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Trash: Unavailable</strike>
         </div>
       );
@@ -188,13 +188,13 @@ class Details extends Component {
   showers() {
     if (this.state.listing[0].showers) {
       return (
-        <div>
+        <div className="Details_Icon">
           Showers: <i className="fa fa-bath" aria-hidden="true" />
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].showers) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Showers: Unavailable</strike>
         </div>
       );
@@ -202,15 +202,15 @@ class Details extends Component {
   }
 
   wifi() {
-    if (this.state.listing[0].showers) {
+    if (this.state.listing[0].wifi) {
       return (
-        <div>
+        <div className="Details_Icon">
           Wifi: <i className="fa fa-wifi" aria-hidden="true" />
         </div>
       );
-    } else if (!this.state.listing[0].trash) {
+    } else if (!this.state.listing[0].wifi) {
       return (
-        <div>
+        <div className="Details_Icon">
           <strike>Wifi: Unavailable</strike>
         </div>
       );
@@ -291,37 +291,13 @@ class Details extends Component {
               </div>
               <div className="Location_Request">
                 <div>
-                  <h4 className="Listing_City_State">
-                    {details.city}, {details.state}
-                  </h4>
+                  <h3 className="Listing_City_State">
+                    {details.city.charAt(0).toUpperCase() + details.city.slice(1)}, {details.state}
+                  </h3>
                   <p className="Location_Details">{details.description}</p>
                 </div>
                 <div className="Date_Picker_Main">
                   <div className="Date_Picker">
-                    {/* <DateTimePicker 
-                    onChange={this.setCheckIn}
-                    DatePicker={DatePickerDialog}
-                    TimePicker={TimePickerDialog}
-                    floatingLabelFixed	
-                    floatingLabelText="Check-In Date"
-                    floatingLabelFocusStyle={{ marginTop: '10px' }}
-                    disabled={false}
-                    id="some-id"
-                    fullWidth={false}
-                    clearIcon={null}
-                    />
-                    <DateTimePicker 
-                    onChange={this.setCheckOut}
-                    DatePicker={DatePickerDialog}
-                    TimePicker={TimePickerDialog}
-                    floatingLabelFixed	
-                    floatingLabelText="Check-In Date"
-                    floatingLabelFocusStyle={{ marginTop: '10px' }}
-                    disabled={false}
-                    id="some-id"
-                    fullWidth={false}
-                    clearIcon={null}
-                    /> */}
 
                     <DatePicker
                       hintText="Check-In Date"
@@ -341,17 +317,17 @@ class Details extends Component {
                 <div className="Amenities_Logo">
                   <div>
                     <div>
-                      <h4>{this.fires()}</h4>
-                      <h4>{this.water()}</h4>
-                      <h4>{this.pets()}</h4>
-                      <h4>{this.toilet()} </h4>
+                      <p>{this.fires()}</p>
+                      <p>{this.water()}</p>
+                      <p>{this.pets()}</p>
+                      <p>{this.toilet()} </p>
                     </div>
                   </div>
                   <div>
                     <div>
-                      <h4>{this.trash()}</h4>
-                      <h4>{this.showers()}</h4>
-                      <h4>{this.wifi()}</h4>
+                      <p>{this.trash()}</p>
+                      <p>{this.showers()}</p>
+                      <p>{this.wifi()}</p>
                     </div>
                   </div>
                   <div className="buffer" />
@@ -365,8 +341,8 @@ class Details extends Component {
                     <p>Max Campers: {details.max_campers}</p>
                     <p>Minimum Nights stay: {details.min_night_stay}</p>
                     <p>Category: {details.category}</p>
-                    <p>Check-in: {details.check_in_time}</p>
-                    <p>Check-out: {details.check_out_time}</p>
+                    <p>Check-In: {details.check_in_time}</p>
+                    <p>Check-Out: {details.check_out_time}</p>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,18 @@
+body {
+  background-color: #1B1E24;
+}
+
 .Details_Container{
     padding-top: 90px;
     font-family: 'Lato', sans-serif;
+}
+
+.Details p {
+  color: #999999;
+}
+
+.Details_Icon {
+  color: #999999;
 }
 
 
@@ -20,6 +32,7 @@
     height: 650px;
     width: 1000px;
     margin: auto;
+    background-color: #1B1E24;
 }
 
 /* .Carousel_Length {
@@ -257,10 +270,15 @@
       opacity: 1; }
   
 
+.Listing_Container {
+  background-color: #1B1E24;
+}
+
 .Listing_Details {
     font-family: 'Lato', sans-serif;
     width: 800px;
-    color: #3F3F3F;
+    color: #ffffff;
+    font-weight: 300;
     margin: 80px auto 500px auto;
     z-index: 999;
     position: relative;
@@ -274,6 +292,11 @@
 
 .Listing_Name {
     margin-top: 0;
+    font-weight: 700;
+}
+
+h3 {
+  font-weight: 400;
 }
 
 .Listing_City_State {
@@ -324,11 +347,24 @@
 
 .Location_Details {
   width: 450px;
+  color: #999999;
+}
+
+.Amenities {
+  padding: 6px 0 6px 0;
 }
 
 .Amenities_Logo {
     display: flex;
     justify-content: space-between;
+}
+
+.Details {
+  padding: 6px 0 6px 0;
+}
+
+.Maps {
+  padding: 6px 0 6px 0;
 }
 
 .Listing_Container {
@@ -369,5 +405,8 @@
 .Details_Map {
   width: 800px;
   height: 400px;
+  padding-top: 15px;
 }
+
+
 
