@@ -26,7 +26,6 @@ class AddListing extends Component {
     super();
 
     this.state = {
-      listing: null,
       fire: false,
       water: false,
       pets: false,
@@ -35,24 +34,25 @@ class AddListing extends Component {
       showers: false,
       wifi: false
     };
-    this.getListing = this.getListing.bind(this);
+    // this.getListing = this.getListing.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.updateListing = this.updateListing.bind(this);
+    // this.updateListing = this.updateListing.bind(this);
+    this.createListing = this.createListing.bind(this);
   }
 
-  componentWillMount = () => {
-    this.getListing();
-  };
+  // componentWillMount = () => {
+  //   this.getListing();
+  // };
 
-  getListing() {
-    const listing = this.props.hostListings.filter(e => {
-      console.log(e.listing_id, this.props.match.params.id);
-      return e.listing_id === +this.props.match.params.id;
-    });
-    this.setState({
-      listing: listing
-    });
-  }
+  // getListing() {
+  //   const listing = this.props.hostListings.filter(e => {
+  //     console.log(e.listing_id, this.props.match.params.id);
+  //     return e.listing_id === +this.props.match.params.id;
+  //   });
+  //   this.setState({
+  //     listing: listing
+  //   });
+  // }
 
   handleChange() {
       console.log(this.refs.listingName.value)
@@ -125,21 +125,25 @@ class AddListing extends Component {
     console.log(this.state)
   }
 
-  updateListing() {
+  createListing() {
     swal({
-        title: "Please confirm your listing update!",
+        title: "Please confirm your new listing!",
         buttons: true,
         dangerMode: false
     })
     .then((confirm) => {
         if(confirm) {
             swal({
-                title: "Your listing has been updated!",
+                title: "Your new listing has been created!",
                 icon: "success"
             });
-            axios.put(`/api/listing/${this.props.match.params.id}`, {
-                listing_id: this.props.match.params.id,
+            axios.post(`/api/listing/`, {
+                host_id: this.props.user.user_id,
                 listing_name: this.refs.listingName.getValue(),
+                address: this.refs.address.getValue(),
+                city: this.refs.city.getValue(),
+                state: this.refs.state.getValue(),
+                zip: this.refs.zip.getValue(),
                 img_1: this.refs.img1.getValue(),
                 img_2: this.refs.img2.getValue(),
                 img_3: this.refs.img3.getValue(),
@@ -159,7 +163,7 @@ class AddListing extends Component {
                 check_out_time: this.refs.checkOutTime.getValue(),
                 description: this.refs.description.getValue()
                 }).then(() => {
-                    console.log("Listing Updated")
+                    console.log("Listing Created")
             })
         } else {
             swal({
@@ -174,13 +178,11 @@ class AddListing extends Component {
   render() {
     // console.log(this.props);
     // console.log(this.props.match.params.id);
-
-    const updateListing = this.state.listing[0];
     // console.log(updateListing);
     return (
       <div>
         <div>
-          <h1>Update Listing: {updateListing.listing_name}</h1>
+
 
         <div className="Update_Details_Container">
           <div className="Text_Input">
@@ -189,7 +191,6 @@ class AddListing extends Component {
             {/* You dont need a handlechange function if yu are using material UI, just use built in function .getValue to store the value.*/}
             <TextField
             ref="listingName"
-            defaultValue={updateListing.listing_name}
             floatingLabelText="Listing Name"
             /><br />
           </div>
@@ -197,7 +198,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="address"
-            defaultValue={updateListing.address}
             floatingLabelText="Address"
             /><br />
           </div>
@@ -205,7 +205,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="city"
-            defaultValue={updateListing.city}
             floatingLabelText="City"
             /><br />
           </div>
@@ -213,7 +212,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="state"
-            defaultValue={updateListing.state}
             floatingLabelText="State"
             /><br />
           </div>
@@ -221,7 +219,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="zip"
-            defaultValue={updateListing.zip}
             floatingLabelText="Zip"
             /><br />
           </div>
@@ -229,7 +226,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="pricePerNight"
-            defaultValue={updateListing.price_per_night}
             floatingLabelText="Price Per Night"
             /><br />
           </div>
@@ -237,7 +233,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="maxCampers"
-            defaultValue={updateListing.max_campers}
             floatingLabelText="Maximum Campers"
             /><br />
           </div>
@@ -245,7 +240,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="minNightStay"
-            defaultValue={updateListing.min_night_stay}
             floatingLabelText="Minimum Night Stays"
             /><br />
           </div>
@@ -253,7 +247,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="checkInTime"
-            defaultValue={updateListing.check_in_time}
             floatingLabelText="Check-In Time"
             /><br />
           </div>
@@ -261,7 +254,6 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="checkOutTime"
-            defaultValue={updateListing.check_out_time}
             floatingLabelText="Check-Out Time"
             /><br />
           </div>
@@ -270,35 +262,30 @@ class AddListing extends Component {
           <div>
           <TextField
             ref="img1"
-            defaultValue={updateListing.img_1}
             floatingLabelText="Image 1 URL"
             /><br />
           </div>
           <div>
           <TextField
             ref="img2"
-            defaultValue={updateListing.img_2}
             floatingLabelText="Image 2 URL"
             /><br />
           </div>
           <div>
           <TextField
             ref="img3"
-            defaultValue={updateListing.img_3}
             floatingLabelText="Image 3 URL"
             /><br />
           </div>
           <div>
           <TextField
             ref="img4"
-            defaultValue={updateListing.img_4}
             floatingLabelText="Image 4 URL"
             /><br />
           </div>
           <div>
           <TextField
             ref="img5"
-            defaultValue={updateListing.img_5}
             floatingLabelText="Image 5 URL"
             /><br />
           </div>
@@ -367,13 +354,12 @@ class AddListing extends Component {
             <h4>Listing Description</h4>
           <TextField
             ref="description"
-            defaultValue={updateListing.description}
             floatingLabelText="Description"
             /><br />
           </div>
 
           <div>
-          <RaisedButton label="Submit" style={buttonStyle} onClick={this.updateListing}/>
+          <RaisedButton label="Submit" style={buttonStyle} onClick={this.createListing}/>
           </div>
 
         </div>

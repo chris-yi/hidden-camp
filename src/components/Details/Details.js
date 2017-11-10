@@ -64,7 +64,7 @@ class Details extends Component {
         dangerMode: false
       })
       .then(() => {
-        window.location.href = "http://localhost:8080/auth"
+        window.location.href = process.env.REACT_APP_LOGIN
       })
     } else {
       swal({
