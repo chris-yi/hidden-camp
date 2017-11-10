@@ -6,12 +6,28 @@
 }
 
 .Avatar {
+    margin: 0 auto;
+    height: 500px;
+    width: 700px;
+    margin-top: 120px;
+    background-color: #14161A;
+}
+
+.Avatar_Main {
     display: flex;
+    padding: 36px;
+    height: 280px;
+    color: #ffffff;
+}
+
+.Avatar_Name {
+    margin: 0;
+    padding: 9px 0 0 21px;
 }
 
 .Profile_Img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
 }
 
 .Listing_Booking {
@@ -20,7 +36,7 @@
 }
 
 .My_Listings {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 400px;
     height: 100%;
 }
@@ -35,4 +51,16 @@
     border: 1px solid black;
     width: 400px;
     height: 100%;
+}
+
+.Profile_Buttons_Container {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffffff;
 }

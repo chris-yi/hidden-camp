@@ -1,5 +1,18 @@
+.My_Listings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 150px;
+  
+}
+
 .My_Listings_Container {
   padding-top: 90px;
   font-family: "Lato", sans-serif;
   min-height: 100vh;
+}
+
+.New_Listings_Button {
+  text-align: center;
 }

@@ -4,7 +4,12 @@ import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import RaisedButton from 'material-ui/RaisedButton';
 import "./MyProfile.css";
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class MyProfile extends Component {
   render() {
@@ -15,6 +20,7 @@ class MyProfile extends Component {
         </div>
         <div className="Profile_Container">
           <div className="Avatar">
+            <div className="Avatar_Main">
             <div className="Avatar_Img_Container">
               <img
                 src={this.props.user.img}
@@ -23,22 +29,29 @@ class MyProfile extends Component {
               />
             </div>
             <div className="Avatar_About">
-              <h1>{this.props.user.user_name}</h1>
+              <h1 className="Avatar_Name">{this.props.user.user_name}</h1>
             </div>
-
+            </div>
+            <div className="Profile_Buttons_Container">
             <Link to="/MyListings">
-              <button>My Listings</button>
+            <RaisedButton label="My Listings" style={buttonStyle}/>
             </Link>
 
             <Link to="/MyRequests">
-              <button>Requests</button>
+            <RaisedButton label="Requests" style={buttonStyle}/>
             </Link>
 
             <Link to="/MyTrips">
-              <button>My Trips</button>
+            <RaisedButton label="My Trips" style={buttonStyle}/>
             </Link>
+            </div>
+
+            </div>
+
+
+
           </div>
-        </div>
+
         <div>
           <Footer />
         </div>

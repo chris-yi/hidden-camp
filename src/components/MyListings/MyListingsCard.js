@@ -4,7 +4,12 @@ import "./MyListingsCard.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { getHostListings, updateListingID } from "../../ducks/reducer";
+import RaisedButton from 'material-ui/RaisedButton';
 import swal from "sweetalert";
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class MyListingsCard extends Component {
   constructor(props) {
@@ -45,6 +50,7 @@ class MyListingsCard extends Component {
 
   render() {
     return (
+
       <div className="My_Listing_Container">
         <div className="Listing_Img_Container">
           <img
@@ -54,15 +60,15 @@ class MyListingsCard extends Component {
           />
         </div>
         <div>
-          <p>{this.props.listingName}</p>
+          <h2>{this.props.listingName}</h2>
           <p>{this.props.city}</p>
           <p>{this.props.state}</p>
         </div>
         <div>
           <Link to={`/UpdateListing/${this.props.listingID}`}>
-            <button>Update</button>
+          <RaisedButton label="Update" style={buttonStyle}/>
           </Link>
-          <button onClick={this.deleteListing}>Delete</button>
+          <RaisedButton label="Delete" style={buttonStyle} onClick={this.deleteListing}/>
         </div>
       </div>
     );

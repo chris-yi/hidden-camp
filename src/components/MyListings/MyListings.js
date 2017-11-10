@@ -6,7 +6,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { getHostListings, getRequests, getTrips } from "../../ducks/reducer";
 import MyListingsCard from "./MyListingsCard";
+import RaisedButton from 'material-ui/RaisedButton';
 import "./MyListings.css";
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class MyListings extends Component {
   componentDidMount() {
@@ -43,14 +48,17 @@ class MyListings extends Component {
         </div>
 
       <div className="My_Listings_Container">
-        <div>
+
+
+        <div className="New_Listings_Button">
           <Link to={`/AddListing`}>
-          <button>Add new listing</button>
+          <RaisedButton label="Add new listing" style={buttonStyle}/>
           </Link>
         </div>
 
+
+
         <div className="My_Listings">
-          my listings
           {hostListingsArr}
         </div>
         </div>
