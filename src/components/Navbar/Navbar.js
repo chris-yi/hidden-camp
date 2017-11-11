@@ -79,6 +79,13 @@ class Navbar extends Component {
                 {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
+              <MenuItem onClick={this.handleClose} className="menu-item">
+              <a href={process.env.REACT_APP_LOGOUT}>
+                Logout
+                </a>
+                {/* <hr className="toggle-line"/> */}
+              </MenuItem>
+              
           </Drawer>
         </div>
       );

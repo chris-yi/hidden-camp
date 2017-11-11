@@ -25,7 +25,7 @@ class MyTripsCard extends Component {
 
   render() {
     return (
-        <div className="Trips_Container">
+        <div className="My_Trip_Container">
             <div className="Trips_Img_Container">
                 <img src={this.props.tripsImg} alt="trips_img" className="Trips_Img"/>
             </div>

@@ -1,3 +1,9 @@
+.My_Listings_Container {
+  padding-top: 120px;
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+}
+
 .My_Listings {
   display: flex;
   flex-wrap: wrap;
@@ -7,11 +13,7 @@
   
 }
 
-.My_Listings_Container {
-  padding-top: 120px;
-  font-family: "Lato", sans-serif;
-  min-height: 100vh;
-}
+
 
 .New_Listings_Button {
   text-align: center;

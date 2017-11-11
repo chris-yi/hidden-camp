@@ -1,11 +1,14 @@
-.Trips_Container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    border-bottom: 1px solid black;
+.My_Trip_Container {
+    height: 425px;
+    width: 270px;
+    margin: 20px;
+    background-color: #14161A;
+    text-align: center;
+    color: #999999;
 }
 
 .Trips_Img {
-    width: 120px;
+    width: 220px;
     height: 120px;
+    margin-top: 27px;
 }

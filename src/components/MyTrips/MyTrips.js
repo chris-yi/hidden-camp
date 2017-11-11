@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { getTrips } from "../../ducks/reducer";
 import MyTripsCard from "./MyTripsCard";
+import "./MyTrips.css";
 
 class MyTrips extends Component {
   componentDidMount() {
@@ -39,13 +40,15 @@ class MyTrips extends Component {
           <Navbar />
         </div>
 
-        <div className="Trips">
-          My Trips
+        <div className="My_Trips_Container">
+
+        <div className="My_Trips">
           {tripsArr}
         </div>
 
         <div>
           <Footer />
+        </div>
         </div>
       </div>
     );

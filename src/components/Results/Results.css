@@ -5,13 +5,14 @@
     font-family: 'Lato', sans-serif;
     background-color: #1B1E24;
     margin-bottom: 500px;
+    width: 100%;
 }
 
 .Results {
     float: left;
     overflow-y:auto;
     position: fixed;
-    height: calc(120vh - 75px);
+    height: calc(100vh - 75px);
     margin-bottom: 2000px;
     width: 50%;
 }
@@ -33,7 +34,8 @@
 }
 
 .results-box {
-    margin-left: 50px;
+    margin-left: 80px;
+    width: 80%;
 }
 
 .results-search {

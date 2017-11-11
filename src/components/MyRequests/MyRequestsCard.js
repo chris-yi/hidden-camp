@@ -3,7 +3,13 @@ import { connect } from "react-redux";
 import axios from "axios";
 import {getRequests} from "../../ducks/reducer";
 import swal from 'sweetalert'
+import RaisedButton from 'material-ui/RaisedButton';
 import "./MyRequestsCard.css";
+
+const buttonStyle = {
+  margin: 12,
+};
+
 
 class MyRequestsCard extends Component {
   constructor(props) {
@@ -18,13 +24,13 @@ class MyRequestsCard extends Component {
     if (!this.props.accepted) {
       return (
         <div>
-          <button onClick={this.approveRequest}>Accept</button>
+          <RaisedButton label="Approve" style={buttonStyle} onClick={this.approveRequest}/>
         </div>
       );
     } else {
       return (
         <div>
-          <h4>Approved!</h4>
+          <h4>Approved<i class="fa fa-check" aria-hidden="true"></i></h4>
         </div>
       );
     }
@@ -51,7 +57,7 @@ class MyRequestsCard extends Component {
         </div>
         <div>
           <h4>{this.props.listingName}</h4>
-          <p>{this.props.userID}</p>
+          <p>{this.props.userName}</p>
           <p>{this.props.checkInDate}</p>
           <p>{this.props.checkOutDate}</p>
           <p>{this.props.pending}</p>

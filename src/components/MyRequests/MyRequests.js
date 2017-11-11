@@ -6,6 +6,9 @@ import axios from "axios";
 import { getRequests, getHostListings, getTrips } from "../../ducks/reducer";
 import MyRequestsCard from "./MyRequestsCard";
 
+import "./MyRequests.css";
+
+
 class MyRequests extends Component {
   componentDidMount() {
     // GET ALL HOST LISTINGS
@@ -21,6 +24,7 @@ class MyRequests extends Component {
             <MyRequestsCard
               key={i}
               userID={e.user_id}
+              userName={e.user_name}
               img={e.img_1}
               listingName={e.listing_name}
               checkInDate={e.check_in_date}
@@ -40,13 +44,14 @@ class MyRequests extends Component {
           <Navbar />
         </div>
 
-        <div className="Requests">
-          Requests
-          {requestsArr}
-        </div>
+        <div className="My_Requests_Container">
+          <div className="My_Requests">
+            {requestsArr}
+          </div>
 
-        <div>
-          <Footer />
+          <div>
+            <Footer />
+          </div>
         </div>
       </div>
     );

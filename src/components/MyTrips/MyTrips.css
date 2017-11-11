@@ -1,0 +1,13 @@
+.My_Trips_Container {
+    padding-top: 120px;
+    font-family: "Lato", sans-serif;
+    min-height: 100vh;
+}
+
+.My_Trips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 350px;
+}
