@@ -8,8 +8,8 @@ export default function Footer(props) {
         <footer className="footer">
             <img src={footer_top} alt="footertop" className="footer_top"/>
             <img src={footer_bottom} alt="footerbottom" className="footer_bottom"/>
-            <div className="footer-container">
-                <div className="footer_left"></div>
+            <div className="footer_container">
+                <div className="footer_left">fadsfas</div>
                 <div className="footer_center">
                     <h1 className="connect">
                         Connect with us
@@ -37,9 +37,10 @@ export default function Footer(props) {
                                 </a>
                             </li>
                         </ul>
+
                     </div>
                 </div>
-                <div className="footer_right"></div>
+                <div className="footer_right">                        <p className="created_by">Created by Chris Yi &copy; 2017</p></div>
             </div>
         </footer>
 	)

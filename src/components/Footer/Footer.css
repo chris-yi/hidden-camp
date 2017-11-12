@@ -47,7 +47,27 @@
 }
 
 .footer_container {
-    height: 800px;
+    display: flex;
+    justify-content: space-between
+}
+
+.footer_left {
+    width: 300px;
+}
+
+.footer_center {
+    width: 300px;
+}
+
+.footer_right {
+    width: 300px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.created_by {
+    margin-top: 42px;
+    margin-left: 42px;
 }
 
 .connect {
