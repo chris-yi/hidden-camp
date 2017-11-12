@@ -62,7 +62,7 @@
 .categories {
   color: #ffffff;
   background-color: #1B1E24;
-  height: 150vh;
+  height: 140vh;
   padding-top: 96px;
   font-family: 'Lato', sans-serif;
 }
@@ -127,4 +127,41 @@
     font-size: 24px;
     text-transform: uppercase;
     width: 100%;
+}
+
+.Home_About {
+  display: flex;
+  justify-content: space-around;
+  height: 75vh;
+  font-family: 'Lato', sans-serif;
+  padding: 0 80px 0 80px;
+}
+
+.Home_About_Containers {
+  width: 250px;
+}
+
+.Home_About_Containers p {
+  font-size: 14px;
+  font-weight: 300;
+
+}
+
+.Empower_Create_Explore {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.Home_About_Icon {
+  padding: 36px;
+}
+
+.Create_Icon {
+  width: 128px;
+  height: 128px;
+}
+
+.Explore_Icon {
+  width: 128px;
+  height: 128px;
 }

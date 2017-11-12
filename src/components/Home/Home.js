@@ -15,6 +15,9 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
+import Empower from "../../Assets/share.png"
+import Explore from "../../Assets/explore.png"
+import Create from "../../Assets/create2.png"
 
 // import { updateAllResults } from "../../ducks/reducer";
 
@@ -188,6 +191,24 @@ class Home extends Component {
               Discover hidden camps on moutains, lakes, oceanfronts, and more across the U.S.
             </p>
 
+        </div>
+
+        <div className="Home_About">
+          <div className="Home_About_Containers">
+            <h2 className="Empower_Create_Explore">Empower</h2>
+            <img src={Empower} alt="empower_icon" className="Empower_Icon Home_About_Icon"/>
+            <p>Hidden Camp empowers people to foster a sharing community</p>
+          </div>
+          <div className="Home_About_Containers">
+            <h2 className="Empower_Create_Explore">Create</h2>
+            <img src={Create} alt="create_icon" className="Create_Icon Home_About_Icon"/>
+            <p>Creating unique travel experiences all over the world</p>
+          </div>
+          <div className="Home_About_Containers">
+            <h2 className="Empower_Create_Explore">Explore</h2>
+            <img src={Explore} alt="explore_icon" className="Explore_Icon Home_About_Icon"/>
+            <p>Explore the outdoors all while making unforgettable memories</p>
+          </div>
         </div>
         <Footer/>
       </div>
