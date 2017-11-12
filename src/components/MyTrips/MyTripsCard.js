@@ -30,9 +30,9 @@ class MyTripsCard extends Component {
                 <img src={this.props.tripsImg} alt="trips_img" className="Trips_Img"/>
             </div>
             <div>
-                <h3>{this.props.listingName}</h3>
-                <p>{this.props.checkInDate}</p>
-                <p>{this.props.checkOutDate}</p>
+                <h2>{this.props.listingName}</h2>
+                <p>Trip Dates:</p>
+                <p>{this.props.checkInDate} ~ {this.props.checkOutDate}</p>
                 <p>{this.props.totalCost}</p>
                 {this.pendingTrip()}
             </div>
