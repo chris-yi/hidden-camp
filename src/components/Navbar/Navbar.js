@@ -76,7 +76,7 @@ class Navbar extends Component {
                 Home
               </MenuItem>
             </Link>
-            <Link to="/about" className="link">
+            <Link to="/About" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 About
               </MenuItem>
