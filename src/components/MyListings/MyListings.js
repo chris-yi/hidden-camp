@@ -61,6 +61,15 @@ class MyListings extends Component {
         <div className="My_Listings">
           {hostListingsArr}
         </div>
+
+        <div className="Back_To_Profile">
+          <Link to={`/MyProfile`}>
+          <RaisedButton label="Back To Profile" style={buttonStyle}/>
+          </Link>
+        </div>
+
+
+
         </div>
 
         <div>

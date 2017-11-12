@@ -5,7 +5,13 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { getTrips } from "../../ducks/reducer";
 import MyTripsCard from "./MyTripsCard";
+import { Link } from "react-router-dom";
+import RaisedButton from 'material-ui/RaisedButton';
 import "./MyTrips.css";
+
+const buttonStyle = {
+  margin: 12,
+};
 
 class MyTrips extends Component {
   componentDidMount() {
@@ -46,10 +52,18 @@ class MyTrips extends Component {
           {tripsArr}
         </div>
 
+        <div className="Back_To_Profile">
+          <Link to={`/MyProfile`}>
+          <RaisedButton label="Back To Profile" style={buttonStyle}/>
+          </Link>
+        </div>
+
+
+        </div>
         <div>
           <Footer />
         </div>
-        </div>
+        
       </div>
     );
   }
