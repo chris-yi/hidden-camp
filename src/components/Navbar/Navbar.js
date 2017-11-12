@@ -38,7 +38,8 @@ class Navbar extends Component {
   }
 
   search() {
-    axios.get(`/api/listings/city/${this.state.searchTerm}`).then(results => {
+    let searchTerm = this.state.searchTerm.replace(/\s+/g, "-").toLowerCase();
+    axios.get(`/api/listings/city/${searchTerm}`).then(results => {
       console.log("This is the city results:" + results.data);
       this.props.getCityListings(results.data);
     });

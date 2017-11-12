@@ -136,7 +136,7 @@ class AddListing extends Component {
                 host_id: this.props.user.user_id,
                 listing_name: this.refs.listingName.getValue(),
                 address: this.refs.address.getValue(),
-                city: this.refs.city.getValue(),
+                city: this.refs.city.getValue().replace(/\s+/g, "-").toLowerCase(),
                 state: this.state.value,
                 zip: this.refs.zip.getValue(),
                 img_1: this.refs.img1.getValue(),
