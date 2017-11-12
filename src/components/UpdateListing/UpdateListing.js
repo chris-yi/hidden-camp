@@ -181,8 +181,9 @@ class UpdateListing extends Component {
     // console.log(updateListing);
     return (
       <div>
+         <Navbar />
         <div>
-          <h1>Update Listing: {updateListing.listing_name}</h1>
+
 
         <div className="Update_Details_Container">
           <div className="Text_Input">
@@ -369,7 +370,7 @@ class UpdateListing extends Component {
                 style={styles.checkbox}
              /></div>
 
-        <div>
+        <div className="Listing_Description">
             <h4>Listing Description</h4>
           <TextField
             ref="description"
@@ -386,6 +387,7 @@ class UpdateListing extends Component {
 
         </div>
       </div>
+      <Footer />
       </div>
 
     );

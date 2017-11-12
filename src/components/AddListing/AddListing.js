@@ -9,6 +9,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import swal from 'sweetalert'
+import "./AddListing.css";
 
 const styles = {
     block: {
@@ -17,6 +18,7 @@ const styles = {
     checkbox: {
       marginBottom: 16,
     },
+
   };
 
   const buttonStyle = {
@@ -177,6 +179,7 @@ handleUsState = (event, index, value) => this.setState({value});
     // console.log(updateListing);
     return (
       <div>
+        <Navbar />
         <div>
 
 
@@ -403,7 +406,7 @@ handleUsState = (event, index, value) => this.setState({value});
                 style={styles.checkbox}
              /></div>
 
-        <div>
+        <div className="Listing_Description">
             <h4>Listing Description</h4>
           <TextField
             ref="description"
@@ -419,6 +422,7 @@ handleUsState = (event, index, value) => this.setState({value});
 
         </div>
       </div>
+      <Footer />
       </div>
 
     );
