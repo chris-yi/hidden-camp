@@ -12,6 +12,7 @@ import MyListings from "./components/MyListings/MyListings";
 import MyRequests from "./components/MyRequests/MyRequests";
 import MyTrips from "./components/MyTrips/MyTrips";
 import AddListing from "./components/AddListing/AddListing";
+import Messages from "./components/Messages/Messages";
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path="/MyRequests" component={MyRequests} />
         <Route path="/MyTrips" component={MyTrips} />
         <Route path="/AddListing" component={AddListing} />
+        <Route path="/Messages" component={Messages} />
       </div>
     );
   }
