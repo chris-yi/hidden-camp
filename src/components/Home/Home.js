@@ -15,9 +15,9 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./Home.css";
 import unique_final from "./../../../src/Assets/unique_final.jpg";
-import Empower from "../../Assets/share.png"
-import Explore from "../../Assets/explore.png"
-import Create from "../../Assets/create2.png"
+import Empower from "../../Assets/share.png";
+import Explore from "../../Assets/explore.png";
+import Create from "../../Assets/create2.png";
 
 // import { updateAllResults } from "../../ducks/reducer";
 
@@ -87,7 +87,6 @@ class Home extends Component {
     });
   }
 
-
   render() {
     return (
       <div className="Home">
@@ -121,14 +120,16 @@ class Home extends Component {
 
           <section className="photogrids">
             <Link to="/Results">
-                <div className="img_container" onClick={this.getMountains}>
-                  <img
-                    src="https://source.unsplash.com/7Tr0JIWs7NA"
-                    alt="mountains"
-                    className="mountains"
-                  />
-                  <div className="img_text" onClick={this.getMountains}>Mountains</div>
+              <div className="img_container" onClick={this.getMountains}>
+                <img
+                  src="https://source.unsplash.com/7Tr0JIWs7NA"
+                  alt="mountains"
+                  className="mountains"
+                />
+                <div className="img_text" onClick={this.getMountains}>
+                  Mountains
                 </div>
+              </div>
             </Link>
 
             <Link to="/Results">
@@ -171,46 +172,58 @@ class Home extends Component {
             </Link>
 
             <Link to="/Results">
-            <div className="img_container" onClick={this.getUnderTheStars}>
-              <img
-                src="https://source.unsplash.com/1azAjl8FTnU"
-                alt="under-the-stars"
-              />
-              <div className="img_text">Under the stars</div>
-            </div>
+              <div className="img_container" onClick={this.getUnderTheStars}>
+                <img
+                  src="https://source.unsplash.com/1azAjl8FTnU"
+                  alt="under-the-stars"
+                />
+                <div className="img_text">Under the stars</div>
+              </div>
             </Link>
 
             <Link to="/Results">
-            <div className="img_container" onClick={this.getUniqueHideaways}>
-              <img src={unique_final} alt="gamping" className="gamping" />
-              <div className="img_text">Unique Hideaways</div>
-            </div>
+              <div className="img_container" onClick={this.getUniqueHideaways}>
+                <img src={unique_final} alt="gamping" className="gamping" />
+                <div className="img_text">Unique Hideaways</div>
+              </div>
             </Link>
           </section>
           <p className="categories_p">
-              Discover hidden camps on moutains, lakes, oceanfronts, and more across the U.S.
-            </p>
-
+            Discover hidden camps on moutains, lakes, oceanfronts, and more
+            across the U.S.
+          </p>
         </div>
 
         <div className="Home_About">
           <div className="Home_About_Containers">
             <h2 className="Empower_Create_Explore">Empower</h2>
-            <img src={Empower} alt="empower_icon" className="Empower_Icon Home_About_Icon"/>
+            <img
+              src={Empower}
+              alt="empower_icon"
+              className="Empower_Icon Home_About_Icon"
+            />
             <p>Hidden Camp empowers people to foster a sharing community</p>
           </div>
           <div className="Home_About_Containers">
             <h2 className="Empower_Create_Explore">Create</h2>
-            <img src={Create} alt="create_icon" className="Create_Icon Home_About_Icon"/>
+            <img
+              src={Create}
+              alt="create_icon"
+              className="Create_Icon Home_About_Icon"
+            />
             <p>Creating unique travel experiences all over the world</p>
           </div>
           <div className="Home_About_Containers">
             <h2 className="Empower_Create_Explore">Explore</h2>
-            <img src={Explore} alt="explore_icon" className="Explore_Icon Home_About_Icon"/>
+            <img
+              src={Explore}
+              alt="explore_icon"
+              className="Explore_Icon Home_About_Icon"
+            />
             <p>Explore the outdoors all while making unforgettable memories</p>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
@@ -231,4 +244,3 @@ export default connect(mapStateToProps, {
   getUnderTheStarsListings,
   getUniqueHideawaysListings
 })(Home);
-

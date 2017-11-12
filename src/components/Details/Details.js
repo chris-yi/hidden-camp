@@ -19,7 +19,7 @@ import DatePicker from "material-ui/DatePicker";
 import Footer from "../Footer/Footer";
 import MyFancyComponent from "../Map/Map";
 import swal from "sweetalert";
-import moment from 'moment';
+import moment from "moment";
 
 class Details extends Component {
   constructor(props) {
@@ -59,31 +59,31 @@ class Details extends Component {
 
   // TO BOOK A LISTING
   postBooking() {
-
     // To get the number of days for booking.
-    const startDate = moment(this.state.check_in_date_string, "MM-DD-YYYY")
-    const endDate = moment(this.state.check_out_date_string, "MM-DD-YYYY")
-    const numberOfDays = endDate.diff(startDate, "days")
+    const startDate = moment(this.state.check_in_date_string, "MM-DD-YYYY");
+    const endDate = moment(this.state.check_out_date_string, "MM-DD-YYYY");
+    const numberOfDays = endDate.diff(startDate, "days");
 
     if (!this.props.user) {
       swal({
         title: "Please Signup/Login Before Booking!",
-        // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
         icon: "warning",
         buttons: true,
         dangerMode: false
       }).then(() => {
         window.location.href = process.env.REACT_APP_LOGIN;
       });
-    } else if (this.state.check_in_date === null || this.state.check_out_date === null){
+    } else if (
+      this.state.check_in_date === null ||
+      this.state.check_out_date === null
+    ) {
       swal({
         title: "Please enter the dates for your trip before booking!",
         icon: "warning"
       });
-    }else {
+    } else {
       swal({
         title: "Please confirm your Booking!",
-        // text:("Address: " + this.state.listing[0].address , "Price: $" + this.state.listing[0].price_per_night, "Check-In: " + this.state.listing[0].check_in_time, "Check-Out: " + this.state.listing[0].check_out_time),
         text: `Total: $${this.state.listing[0].price_per_night * numberOfDays}`,
         icon: "info",
         buttons: true,
@@ -95,18 +95,19 @@ class Details extends Component {
             text: "Your request has been sent to the Host!",
             icon: "success"
           });
-          axios.post(`/api/booking/`, {
-            user_id: this.props.user.user_id,
-            listing_id: this.state.listing[0].listing_id,
-            check_in_date: this.state.check_in_date_string,
-            check_out_date: this.state.check_out_date_string,
-            total_cost: this.state.listing[0].price_per_night,
-            host_id: this.state.listing[0].host_id
-          }).then(() => {
-            console.log("Listing Created", this.props.user.user_id )
-            this.props.history.push('/MyProfile');
-    })
-            
+          axios
+            .post(`/api/booking/`, {
+              user_id: this.props.user.user_id,
+              listing_id: this.state.listing[0].listing_id,
+              check_in_date: this.state.check_in_date_string,
+              check_out_date: this.state.check_out_date_string,
+              total_cost: this.state.listing[0].price_per_night,
+              host_id: this.state.listing[0].host_id
+            })
+            .then(() => {
+              console.log("Listing Created", this.props.user.user_id);
+              this.props.history.push("/MyProfile");
+            });
         } else {
           swal({
             title: "Ok, please re-submit when you're ready!",
@@ -234,11 +235,6 @@ class Details extends Component {
     }
   }
 
-  // setCheckIn = (check_in_date) => {
-  //   this.setState({ check_in_date })
-  // }
-  // setCheckOut = (check_out_date) => this.setState({ check_out_date })
-
   handleCheckIn = (event, date) => {
     this.setState({
       check_in_date: date,
@@ -254,7 +250,6 @@ class Details extends Component {
   };
 
   render() {
-
     console.log(this.state.listing);
     const details = this.state.listing[0];
     console.log(details);
@@ -312,23 +307,23 @@ class Details extends Component {
               <div className="Location_Request">
                 <div>
                   <h3 className="Listing_City_State">
-                    {details.city.charAt(0).toUpperCase() + details.city.slice(1)}, {details.state}
+                    {details.city.charAt(0).toUpperCase() +
+                      details.city.slice(1)}, {details.state}
                   </h3>
                   <p className="Location_Details">{details.description}</p>
                 </div>
                 <div className="Date_Picker_Main">
                   <div className="Date_Picker">
-
                     <DatePicker
                       hintText="Check-In Date"
                       onChange={this.handleCheckIn}
-                      formatDate={(date) => moment(date).format('MM-DD-YYYY')}
+                      formatDate={date => moment(date).format("MM-DD-YYYY")}
                     />
 
                     <DatePicker
                       hintText="Check-Out Date"
                       onChange={this.handleCheckOut}
-                      formatDate={(date) => moment(date).format('MM-DD-YYYY')}
+                      formatDate={date => moment(date).format("MM-DD-YYYY")}
                     />
                   </div>
                 </div>

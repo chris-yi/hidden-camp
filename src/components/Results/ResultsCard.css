@@ -1,45 +1,43 @@
 .resultsCard {
-    display: flex;
-    border-bottom: 1px solid #2d2d2d;
-    width: 100%;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-
+  display: flex;
+  border-bottom: 1px solid #2d2d2d;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
 }
 
 .site_name {
-    font-size: 27px;
-    font-weight: 400;
-    margin-top: 27px;
-    margin-bottom: 12px;
+  font-size: 27px;
+  font-weight: 400;
+  margin-top: 27px;
+  margin-bottom: 12px;
 }
 
 .card_info {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .card_info li {
-    color: #999999;
+  color: #999999;
 }
 
 .card_img {
-    width: 280px;
-    height: 200px;
-    margin: 20px;
+  width: 280px;
+  height: 200px;
+  margin: 20px;
 }
 
 .city_state {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .icon_container {
-    display: flex;
-    /* justify-content: space-between; */
-    padding-top: 21px;
+  display: flex;
+  padding-top: 21px;
 }
 
 .icons {
-    padding-right: 21px;
-    color: #999999;
+  padding-right: 21px;
+  color: #999999;
 }

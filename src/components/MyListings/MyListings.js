@@ -6,11 +6,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { getHostListings, getRequests, getTrips } from "../../ducks/reducer";
 import MyListingsCard from "./MyListingsCard";
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from "material-ui/RaisedButton";
 import "./MyListings.css";
 
 const buttonStyle = {
-  margin: 12,
+  margin: 12
 };
 
 class MyListings extends Component {
@@ -47,29 +47,20 @@ class MyListings extends Component {
           <Navbar />
         </div>
 
-      <div className="My_Listings_Container">
+        <div className="My_Listings_Container">
+          <div className="New_Listings_Button">
+            <Link to={`/AddListing`}>
+              <RaisedButton label="Create New Listing" style={buttonStyle} />
+            </Link>
+          </div>
 
+          <div className="My_Listings">{hostListingsArr}</div>
 
-        <div className="New_Listings_Button">
-          <Link to={`/AddListing`}>
-          <RaisedButton label="Create New Listing" style={buttonStyle}/>
-          </Link>
-        </div>
-
-
-
-        <div className="My_Listings">
-          {hostListingsArr}
-        </div>
-
-        <div className="Back_To_Profile">
-          <Link to={`/MyProfile`}>
-          <RaisedButton label="Back To Profile" style={buttonStyle}/>
-          </Link>
-        </div>
-
-
-
+          <div className="Back_To_Profile">
+            <Link to={`/MyProfile`}>
+              <RaisedButton label="Back To Profile" style={buttonStyle} />
+            </Link>
+          </div>
         </div>
 
         <div>

@@ -5,13 +5,13 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { getRequests, getHostListings, getTrips } from "../../ducks/reducer";
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from "material-ui/RaisedButton";
 import MyRequestsCard from "./MyRequestsCard";
 
 import "./MyRequests.css";
 
 const buttonStyle = {
-  margin: 12,
+  margin: 12
 };
 
 class MyRequests extends Component {
@@ -50,25 +50,18 @@ class MyRequests extends Component {
         </div>
 
         <div className="My_Requests_Container">
-
-
-
-          <div className="My_Requests">
-            {requestsArr}
-          </div>
+          <div className="My_Requests">{requestsArr}</div>
 
           <div className="Back_To_Profile">
-          <Link to={`/MyProfile`}>
-          <RaisedButton label="Back To Profile" style={buttonStyle}/>
-          </Link>
+            <Link to={`/MyProfile`}>
+              <RaisedButton label="Back To Profile" style={buttonStyle} />
+            </Link>
           </div>
+        </div>
 
-          </div>
-
-          <div>
-            <Footer />
-          </div>
-        
+        <div>
+          <Footer />
+        </div>
       </div>
     );
   }

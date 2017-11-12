@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import {getRequests} from "../../ducks/reducer";
-import swal from 'sweetalert'
-import RaisedButton from 'material-ui/RaisedButton';
+import { getRequests } from "../../ducks/reducer";
+import swal from "sweetalert";
+import RaisedButton from "material-ui/RaisedButton";
 import "./MyRequestsCard.css";
 
 const buttonStyle = {
-  margin: 12,
+  margin: 12
 };
-
 
 class MyRequestsCard extends Component {
   constructor(props) {
@@ -24,13 +23,19 @@ class MyRequestsCard extends Component {
     if (!this.props.accepted) {
       return (
         <div>
-          <RaisedButton label="Approve" style={buttonStyle} onClick={this.approveRequest}/>
+          <RaisedButton
+            label="Approve"
+            style={buttonStyle}
+            onClick={this.approveRequest}
+          />
         </div>
       );
     } else {
       return (
         <div>
-          <h4>Approved<i class="fa fa-check" aria-hidden="true"></i></h4>
+          <h4>
+            Approved<i class="fa fa-check" aria-hidden="true" />
+          </h4>
         </div>
       );
     }
@@ -38,10 +43,10 @@ class MyRequestsCard extends Component {
 
   approveRequest() {
     axios.put(`/api/approve/${this.props.bookingID}`).then(() => {
-        swal({
-            title: "Request has been approved!",
-            icon: "success"
-        });
+      swal({
+        title: "Request has been approved!",
+        icon: "success"
+      });
       console.log("Listing Approved");
       axios.get(`/api/requests/${this.props.user.user_id}`).then(results => {
         this.props.getRequests(results.data);
@@ -58,8 +63,14 @@ class MyRequestsCard extends Component {
         <div>
           <h3>{this.props.listingName}</h3>
           <p>User: {this.props.userName} would like to book a trip!</p>
-          <p>Check-In: <br/>{this.props.checkInDate}</p>
-          <p>Check-Out: <br/>{this.props.checkOutDate}</p>
+          <p>
+            Check-In: <br />
+            {this.props.checkInDate}
+          </p>
+          <p>
+            Check-Out: <br />
+            {this.props.checkOutDate}
+          </p>
           <p>{this.props.pending}</p>
           <p>{this.props.totalCost}</p>
           {this.approve()}
@@ -75,4 +86,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {getRequests})(MyRequestsCard);
+export default connect(mapStateToProps, { getRequests })(MyRequestsCard);

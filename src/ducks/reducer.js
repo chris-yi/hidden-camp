@@ -19,18 +19,8 @@ const GET_ALL_LAKEVIEW = "GET_ALL_LAKEVIEW";
 const GET_ALL_FOREST = "GET_ALL_FOREST";
 const GET_ALL_UNDER_THE_STARS = "GET_ALL_UNDER_THE_STARS";
 const GET_UNIQUE_HIDEAWAYS = "GET_UNIQUE_HIDEAWAYS";
-
 const UPDATE_LISTING_ID = "UPDATE_LISTING_ID";
-
 const GET_CITY_LISTINGS = "GET_CITY_LISTINGS";
-// export function getListings() {
-//   const listing = axios.get("/api/listings").then(res => res.data);
-//   return {
-//     type: GET_ALL_LISTINGS,
-//     payload: listing
-//   }
-// }
-
 const GET_USER_INFO = "GET_USER_INFO";
 
 // Get user info
@@ -138,9 +128,9 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { allListings: action.payload });
     case GET_HOST_LISTINGS:
       return Object.assign({}, state, { hostListings: action.payload });
-      case GET_REQUESTS:
+    case GET_REQUESTS:
       return Object.assign({}, state, { requests: action.payload });
-      case GET_TRIPS:
+    case GET_TRIPS:
       return Object.assign({}, state, { trips: action.payload });
     case GET_ALL_MOUNTAINS:
       return Object.assign({}, state, { allListings: action.payload });
@@ -159,7 +149,6 @@ export default function reducer(state = initialState, action) {
     case GET_CITY_LISTINGS:
       return Object.assign({}, state, { allListings: action.payload });
     case GET_USER_INFO + "_FULFILLED":
-      // Do something here
       return Object.assign({}, state, { user: action.payload });
     default:
       return state;

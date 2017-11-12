@@ -6,9 +6,9 @@ import { getCityListings, getUserInfo } from "../../ducks/reducer";
 import "./Navbar.css";
 import newLogo from "../../Assets/newResized.png";
 import Drawer from "material-ui/Drawer";
-import MenuItem from 'material-ui/MenuItem';
+import MenuItem from "material-ui/MenuItem";
 // Used this for the keydown search
-import {withRouter} from "react-router";
+import { withRouter } from "react-router";
 
 class Navbar extends Component {
   constructor(props) {
@@ -46,9 +46,9 @@ class Navbar extends Component {
   }
 
   keyDownSearch(input) {
-    if(input.keyCode === 13) {
+    if (input.keyCode === 13) {
       this.search();
-      this.props.history.push('/Results');
+      this.props.history.push("/Results");
     }
   }
 
@@ -62,7 +62,7 @@ class Navbar extends Component {
             className="profile-img"
             onClick={this.handleToggle}
           />
-          <i className="fa fa-caret-down" aria-hidden="true"></i>
+          <i className="fa fa-caret-down" aria-hidden="true" />
           <Drawer
             docked={false}
             width={300}
@@ -74,35 +74,28 @@ class Navbar extends Component {
             <Link to="/" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 Home
-                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <Link to="/about" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 About
-                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <Link to="/MyProfile" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 My Profile
-                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <Link to="/Messages" className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 Messages
-                {/* <hr className="toggle-line"/> */}
               </MenuItem>
             </Link>
             <a href={process.env.REACT_APP_LOGOUT} className="link">
               <MenuItem onClick={this.handleClose} className="menu-item">
                 Logout
-                {/* <hr className="toggle-line"/> */}
               </MenuItem>
-              </a>
-
-              
+            </a>
           </Drawer>
         </div>
       );
@@ -138,9 +131,9 @@ class Navbar extends Component {
             </Link>
           </div>
           <div className="Logo_Main">
-          <Link to="/">
+            <Link to="/">
               <img className="Logo" src={newLogo} alt="logo" />
-          </Link>
+            </Link>
           </div>
           <div className="Login_Toggle">{this.profile()}</div>
         </div>
@@ -159,6 +152,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { getCityListings, getUserInfo })(
-  Navbar
-));
+export default withRouter(
+  connect(mapStateToProps, { getCityListings, getUserInfo })(Navbar)
+);

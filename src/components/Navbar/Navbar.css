@@ -1,4 +1,3 @@
-
 .navbar {
   /* background-color: #ffffff; */
   background-color: rgba(0, 0, 0, 0.2);
@@ -17,14 +16,6 @@
   color: black;
   width: 100px;
 }
-
-/* .Logo {
-    background-color: white;
-}
-
-.texture {
-    background-color: rgba(0, 0, 0, 0.2);
-} */
 
 .Login_Main {
   width: 316px;
@@ -92,7 +83,7 @@
 }
 
 .drawer {
-  background-color: rgba(0,0,0,0.8) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
   padding-top: 20px;
 }
 

@@ -6,11 +6,11 @@ import axios from "axios";
 import { getTrips } from "../../ducks/reducer";
 import MyTripsCard from "./MyTripsCard";
 import { Link } from "react-router-dom";
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from "material-ui/RaisedButton";
 import "./MyTrips.css";
 
 const buttonStyle = {
-  margin: 12,
+  margin: 12
 };
 
 class MyTrips extends Component {
@@ -47,23 +47,17 @@ class MyTrips extends Component {
         </div>
 
         <div className="My_Trips_Container">
+          <div className="My_Trips">{tripsArr}</div>
 
-        <div className="My_Trips">
-          {tripsArr}
-        </div>
-
-        <div className="Back_To_Profile">
-          <Link to={`/MyProfile`}>
-          <RaisedButton label="Back To Profile" style={buttonStyle}/>
-          </Link>
-        </div>
-
-
+          <div className="Back_To_Profile">
+            <Link to={`/MyProfile`}>
+              <RaisedButton label="Back To Profile" style={buttonStyle} />
+            </Link>
+          </div>
         </div>
         <div>
           <Footer />
         </div>
-        
       </div>
     );
   }
