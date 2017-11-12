@@ -61,7 +61,7 @@ class MyListingsCard extends Component {
         </div>
         <div>
           <h2>{this.props.listingName}</h2>
-          <p>{this.props.city}</p>
+          <p>{this.props.city.charAt(0).toUpperCase() + this.props.city.slice(1)}</p>
           <p>{this.props.state}</p>
         </div>
         <div>

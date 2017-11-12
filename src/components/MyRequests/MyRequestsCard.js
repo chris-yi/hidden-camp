@@ -56,10 +56,10 @@ class MyRequestsCard extends Component {
           <img src={this.props.img} alt="request_img" className="Request_Img" />
         </div>
         <div>
-          <h4>{this.props.listingName}</h4>
-          <p>{this.props.userName}</p>
-          <p>{this.props.checkInDate}</p>
-          <p>{this.props.checkOutDate}</p>
+          <h3>{this.props.listingName}</h3>
+          <p>User: {this.props.userName} would like to book a trip!</p>
+          <p>Check-In: <br/>{this.props.checkInDate}</p>
+          <p>Check-Out: <br/>{this.props.checkOutDate}</p>
           <p>{this.props.pending}</p>
           <p>{this.props.totalCost}</p>
           {this.approve()}

@@ -52,7 +52,7 @@ class MyListings extends Component {
 
         <div className="New_Listings_Button">
           <Link to={`/AddListing`}>
-          <RaisedButton label="Add new listing" style={buttonStyle}/>
+          <RaisedButton label="Create New Listing" style={buttonStyle}/>
           </Link>
         </div>
 

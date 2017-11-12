@@ -198,6 +198,7 @@ class UpdateListing extends Component {
           <div>
           <TextField
             ref="address"
+            disabled={true}
             defaultValue={updateListing.address}
             floatingLabelText="Address"
             /><br />
@@ -206,6 +207,7 @@ class UpdateListing extends Component {
           <div>
           <TextField
             ref="city"
+            disabled={true}
             defaultValue={updateListing.city}
             floatingLabelText="City"
             /><br />
@@ -214,6 +216,7 @@ class UpdateListing extends Component {
           <div>
           <TextField
             ref="state"
+            disabled={true}
             defaultValue={updateListing.state}
             floatingLabelText="State"
             /><br />
@@ -222,6 +225,7 @@ class UpdateListing extends Component {
           <div>
           <TextField
             ref="zip"
+            disabled={true}
             defaultValue={updateListing.zip}
             floatingLabelText="Zip"
             /><br />

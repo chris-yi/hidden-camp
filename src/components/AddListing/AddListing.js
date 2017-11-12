@@ -5,6 +5,8 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import swal from 'sweetalert'
 
@@ -21,6 +23,7 @@ const styles = {
     margin: 12,
   };
 
+
 class AddListing extends Component {
   constructor() {
     super();
@@ -32,12 +35,14 @@ class AddListing extends Component {
       toilets: false,
       trash: false,
       showers: false,
-      wifi: false
+      wifi: false,
+      value: ""
     };
     // this.getListing = this.getListing.bind(this);
     this.handleChange = this.handleChange.bind(this);
     // this.updateListing = this.updateListing.bind(this);
     this.createListing = this.createListing.bind(this);
+    this.handleUsState = this.handleUsState.bind(this);
   }
 
   // componentWillMount = () => {
@@ -142,7 +147,7 @@ class AddListing extends Component {
                 listing_name: this.refs.listingName.getValue(),
                 address: this.refs.address.getValue(),
                 city: this.refs.city.getValue(),
-                state: this.refs.state.getValue(),
+                state: this.state.value,
                 zip: this.refs.zip.getValue(),
                 img_1: this.refs.img1.getValue(),
                 img_2: this.refs.img2.getValue(),
@@ -174,6 +179,8 @@ class AddListing extends Component {
     })
    
 }
+
+handleUsState = (event, index, value) => this.setState({value});
 
   render() {
     // console.log(this.props);
@@ -210,10 +217,67 @@ class AddListing extends Component {
           </div>
 
           <div>
-          <TextField
+          {/* <TextField
             ref="state"
             floatingLabelText="State"
-            /><br />
+            /><br /> */}
+
+        <SelectField
+          floatingLabelText="State"
+          value={this.state.value}
+          onChange={this.handleUsState}
+        >
+          <MenuItem value={"AL"} primaryText="AL" />
+          <MenuItem value={"AK"} primaryText="AK" />
+          <MenuItem value={"AZ"} primaryText="AZ" />
+          <MenuItem value={"AR"} primaryText="AR" />
+          <MenuItem value={"CA"} primaryText="CA" />
+          <MenuItem value={"CO"} primaryText="CO" />
+          <MenuItem value={"CT"} primaryText="CT" />
+          <MenuItem value={"DE"} primaryText="DE" />
+          <MenuItem value={"FL"} primaryText="FL" />
+          <MenuItem value={"GA"} primaryText="GA" />
+          <MenuItem value={"HI"} primaryText="HI" />
+          <MenuItem value={"ID"} primaryText="ID" />
+          <MenuItem value={"IL"} primaryText="IL" />
+          <MenuItem value={"IN"} primaryText="IN" />
+          <MenuItem value={"IA"} primaryText="IA" />
+          <MenuItem value={"KS"} primaryText="KS" />
+          <MenuItem value={"KY"} primaryText="KY" />
+          <MenuItem value={"LA"} primaryText="LA" />
+          <MenuItem value={"ME"} primaryText="ME" />
+          <MenuItem value={"MD"} primaryText="MD" />
+          <MenuItem value={"MA"} primaryText="MA" />
+          <MenuItem value={"MI"} primaryText="MI" />
+          <MenuItem value={"MN"} primaryText="MN" />
+          <MenuItem value={"MS"} primaryText="MS" />
+          <MenuItem value={"MO"} primaryText="MO" />
+          <MenuItem value={"MT"} primaryText="MT" />
+          <MenuItem value={"NE"} primaryText="NE" />
+          <MenuItem value={"NV"} primaryText="NV" />
+          <MenuItem value={"NH"} primaryText="NH" />
+          <MenuItem value={"NJ"} primaryText="NJ" />
+          <MenuItem value={"NM"} primaryText="NM" />
+          <MenuItem value={"NY"} primaryText="NY" />
+          <MenuItem value={"NC"} primaryText="NC" />
+          <MenuItem value={"ND"} primaryText="ND" />
+          <MenuItem value={"OH"} primaryText="OH" />
+          <MenuItem value={"OK"} primaryText="OK" />
+          <MenuItem value={"OR"} primaryText="OR" />
+          <MenuItem value={"PA"} primaryText="PA" />
+          <MenuItem value={"RI"} primaryText="RI" />
+          <MenuItem value={"SC"} primaryText="SC" />
+          <MenuItem value={"SD"} primaryText="SD" />
+          <MenuItem value={"TN"} primaryText="TN" />
+          <MenuItem value={"TX"} primaryText="TX" />
+          <MenuItem value={"UT"} primaryText="UT" />
+          <MenuItem value={"VT"} primaryText="VT" />
+          <MenuItem value={"VA"} primaryText="VA" />
+          <MenuItem value={"WA"} primaryText="WA" />
+          <MenuItem value={"WV"} primaryText="WV" />
+          <MenuItem value={"WI"} primaryText="WI" />
+          <MenuItem value={"WY"} primaryText="WY" />
+        </SelectField>
           </div>
           
           <div>
