@@ -1,24 +1,24 @@
 .About_Container {
-    height: 100vh;
-    padding-top: 90px;
+  height: 100vh;
+  padding-top: 90px;
 }
 
 .About_Details {
-    font-family: 'Lato', sans-serif;
-    width: 800px;
-    margin: auto;
-    padding-top: 100px;
+  font-family: "Lato", sans-serif;
+  width: 800px;
+  margin: auto;
+  padding-top: 100px;
 }
 
 .About_Details h1 {
-    font-size: 46px;
-    color: #ffffff;
-    font-weight: 300;
+  font-size: 46px;
+  color: #ffffff;
+  font-weight: 300;
 }
 
 .About_Details p {
-    color: #999999;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 130%
+  color: #999999;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 130%;
 }
