@@ -36,6 +36,7 @@ class AddListing extends Component {
       trash: false,
       showers: false,
       wifi: false,
+      // US.State Value
       value: ""
     };
     // this.getListing = this.getListing.bind(this);
@@ -45,19 +46,6 @@ class AddListing extends Component {
     this.handleUsState = this.handleUsState.bind(this);
   }
 
-  // componentWillMount = () => {
-  //   this.getListing();
-  // };
-
-  // getListing() {
-  //   const listing = this.props.hostListings.filter(e => {
-  //     console.log(e.listing_id, this.props.match.params.id);
-  //     return e.listing_id === +this.props.match.params.id;
-  //   });
-  //   this.setState({
-  //     listing: listing
-  //   });
-  // }
 
   handleChange() {
       console.log(this.refs.listingName.value)
