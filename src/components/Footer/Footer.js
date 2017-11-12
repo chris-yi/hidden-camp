@@ -40,7 +40,7 @@ export default function Footer(props) {
 
                     </div>
                 </div>
-                <div className="footer_right">                        <p className="created_by">Created by Chris Yi &copy; 2017</p></div>
+                <div className="footer_right">                        <p className="created_by">Created by Chris Yi | &copy; 2017 Hidden Camp</p></div>
             </div>
         </footer>
 	)
