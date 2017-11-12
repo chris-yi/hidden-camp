@@ -339,17 +339,17 @@ class Details extends Component {
                 <div className="Amenities_Logo">
                   <div>
                     <div>
-                      <p>{this.fires()}</p>
-                      <p>{this.water()}</p>
-                      <p>{this.pets()}</p>
-                      <p>{this.toilet()} </p>
+                      {this.fires()}
+                      {this.water()}
+                      {this.pets()}
+                      {this.toilet()}
                     </div>
                   </div>
                   <div>
                     <div>
-                      <p>{this.trash()}</p>
-                      <p>{this.showers()}</p>
-                      <p>{this.wifi()}</p>
+                      {this.trash()}
+                      {this.showers()}
+                      {this.wifi()}
                     </div>
                   </div>
                   <div className="buffer" />
