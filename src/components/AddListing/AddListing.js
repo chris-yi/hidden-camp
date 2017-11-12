@@ -159,7 +159,7 @@ class AddListing extends Component {
                 description: this.refs.description.getValue()
                 }).then(() => {
                     console.log("Listing Created", this.props.user.user_id )
-                    window.location.href = "/MyProfile"
+                    this.props.history.push('/MyProfile');
             })
         } else {
             swal({

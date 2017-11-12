@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCityListings, getUserInfo } from "../../ducks/reducer";
 import "./Navbar.css";
-import logo2med from "../../Assets/2medium.png";
 import newLogo from "../../Assets/newResized.png";
 import Drawer from "material-ui/Drawer";
 import MenuItem from 'material-ui/MenuItem';
+// Used this for the keydown search
+import {withRouter} from "react-router";
 
 class Navbar extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Navbar extends Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.search = this.search.bind(this);
+    this.keyDownSearch = this.keyDownSearch.bind(this);
     this.profile = this.profile.bind(this);
   }
 
@@ -40,6 +42,13 @@ class Navbar extends Component {
       console.log("This is the city results:" + results.data);
       this.props.getCityListings(results.data);
     });
+  }
+
+  keyDownSearch(input) {
+    if(input.keyCode === 13) {
+      this.search();
+      this.props.history.push('/Results');
+    }
   }
 
   profile() {
@@ -109,6 +118,7 @@ class Navbar extends Component {
               placeholder="Search by City.."
               onChange={this.handleInput}
               value={this.state.searchTerm}
+              onKeyDown={this.keyDownSearch}
             />
             <Link to="/Results">
               <button
@@ -142,6 +152,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getCityListings, getUserInfo })(
+export default withRouter(connect(mapStateToProps, { getCityListings, getUserInfo })(
   Navbar
-);
+));

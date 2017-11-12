@@ -161,7 +161,7 @@ class UpdateListing extends Component {
                 description: this.refs.description.getValue()
                 }).then(() => {
                     console.log("Listing Updated")
-                    window.location.href = "/MyProfile"
+                    this.props.history.push('/MyProfile');
             })
         } else {
             swal({

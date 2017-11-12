@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { connect } from "react-redux";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import RaisedButton from 'material-ui/RaisedButton';
 import "./MyProfile.css";

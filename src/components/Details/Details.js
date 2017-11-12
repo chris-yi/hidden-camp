@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import "./Details.css";
 import {
@@ -66,7 +65,6 @@ class Details extends Component {
     const endDate = moment(this.state.check_out_date_string, "MM-DD-YYYY")
     const numberOfDays = endDate.diff(startDate, "days")
 
-    console.log(numberOfDays);
     if (!this.props.user) {
       swal({
         title: "Please Signup/Login Before Booking!",
@@ -104,7 +102,11 @@ class Details extends Component {
             check_out_date: this.state.check_out_date_string,
             total_cost: this.state.listing[0].price_per_night,
             host_id: this.state.listing[0].host_id
-          });
+          }).then(() => {
+            console.log("Listing Created", this.props.user.user_id )
+            this.props.history.push('/MyProfile');
+    })
+            
         } else {
           swal({
             title: "Ok, please re-submit when you're ready!",
