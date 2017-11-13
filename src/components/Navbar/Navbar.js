@@ -46,7 +46,7 @@ class Navbar extends Component {
   }
 
   keyDownSearch(input) {
-    if (input.keyCode === 13) {
+    if (input.keyCode === 13 && this.state.searchTerm !== "") {
       this.search();
       this.props.history.push("/Results");
     }
