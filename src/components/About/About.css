@@ -10,6 +10,10 @@
   padding-top: 100px;
 }
 
+h1 {
+  padding-bottom: 20px;
+}
+
 .About_Details h1 {
   font-size: 46px;
   color: #ffffff;
@@ -21,4 +25,37 @@
   font-weight: 300;
   font-size: 16px;
   line-height: 130%;
+}
+
+.About_Technologies {
+  font-family: "Lato", sans-serif;
+  width: 800px;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.About_Technologies h1 {
+  font-size: 46px;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.Tech-Logos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.About_Logos {
+  width: 80px;
+  height: 80px;
+}
+
+.Node {
+  width: 100px;
+  height: 100px;
+}
+
+.Redux {
+  width: 70px;
+  height: 70px;
 }

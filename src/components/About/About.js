@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import ReactLogo from "../../Assets/reactlogo.png";
+import ReduxLogo from "../../Assets/reduxlogo.png";
+import NodejsLogo from "../../Assets/nodejs.png";
+import PostgresqlLogo from "../../Assets/postgresql.png";
+import JavaScriptLogo from "../../Assets/javascript.png";
+import HTMLLogo from "../../Assets/htmlnew.png";
+import CssLogo from "../../Assets/cssnew.png";
 import "./About.css";
 
 class About extends Component {
@@ -21,6 +27,24 @@ class About extends Component {
               secluded adventures can request a booking through the site and
               interact with the Host.{" "}
             </p>
+          </div>
+          <div className="About_Technologies">
+            <h1>Technologies Used</h1>
+            <div className="Tech-Logos">
+              <img
+                src={JavaScriptLogo}
+                alt="JavaScript"
+                className="About_Logos"
+              />
+              <img src={ReactLogo} alt="react" className="About_Logos" />
+              <img src={ReduxLogo} alt="redux" className="Redux" />
+              <img src={NodejsLogo} alt="nodejs" className="About_Logos" />
+              <img
+                src={PostgresqlLogo}
+                alt="postgresql"
+                className="About_Logos"
+              />
+            </div>
           </div>
         </div>
         <div>
