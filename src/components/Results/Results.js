@@ -8,6 +8,9 @@ import MyFancyComponent from "../Map/Map";
 import "./Results.css";
 
 class Results extends Component {
+  // componentDidMount(){
+  //   this.props.allListings.length === 0 ? alert('Sup') : null
+  // }
   render() {
     const resultsArr = this.props.allListings
       ? this.props.allListings.map((e, i) => {

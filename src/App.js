@@ -12,6 +12,7 @@ import MyTrips from "./components/MyTrips/MyTrips";
 import AddListing from "./components/AddListing/AddListing";
 import Messages from "./components/Messages/Messages";
 import About from "./components/About/About";
+import NotFound from "./components/NotFound/NotFound";
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
         <Route path="/AddListing" component={AddListing} />
         <Route path="/Messages" component={Messages} />
         <Route path="/About" component={About} />
+        <Route path="/NotFound" component={NotFound} />
       </div>
     );
   }

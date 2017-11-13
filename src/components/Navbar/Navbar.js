@@ -41,14 +41,18 @@ class Navbar extends Component {
     let searchTerm = this.state.searchTerm.replace(/\s+/g, "-").toLowerCase();
     axios.get(`/api/listings/city/${searchTerm}`).then(results => {
       console.log("This is the city results:" + results.data);
-      this.props.getCityListings(results.data);
+      this.props.getCityListings(results.data)
+      if(results.data.length > 0) {
+        this.props.history.push("/Results");
+      } else {
+        this.props.history.push("/NotFound")
+      }
     });
   }
 
   keyDownSearch(input) {
     if (input.keyCode === 13 && this.state.searchTerm !== "") {
-      this.search();
-      this.props.history.push("/Results");
+      this.search()
     }
   }
 

@@ -1,0 +1,38 @@
+.Not_Found {
+  height: 90vh;
+  padding-top: 180px;
+  font-family: "Lato", sans-serif;
+  color: #999999;
+  text-align: center;
+}
+
+.Not_Found_Message {
+  width: 800px;
+  height: 500px;
+  background-color: #14161a;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.Face {
+  height: 200px;
+  width: 200px;
+}
+
+.Not_Found_Message h2 {
+  font-size: 66px;
+  font-weight: 300;
+  margin: 10px 0 10px 0;
+}
+
+.Not_Found_Message h4 {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 0 12px 0;
+}
+
+.Not_Found_Message p {
+  font-size: 14px;
+  font-weight: 300;
+  margin: 65px;
+}
