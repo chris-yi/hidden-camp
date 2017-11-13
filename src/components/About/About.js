@@ -6,8 +6,6 @@ import ReduxLogo from "../../Assets/reduxlogo.png";
 import NodejsLogo from "../../Assets/nodejs.png";
 import PostgresqlLogo from "../../Assets/postgresql.png";
 import JavaScriptLogo from "../../Assets/javascript.png";
-import HTMLLogo from "../../Assets/htmlnew.png";
-import CssLogo from "../../Assets/cssnew.png";
 import "./About.css";
 
 class About extends Component {
