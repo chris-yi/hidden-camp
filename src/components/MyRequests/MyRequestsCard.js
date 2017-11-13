@@ -72,7 +72,6 @@ class MyRequestsCard extends Component {
             {this.props.checkOutDate}
           </p>
           <p>{this.props.pending}</p>
-          <p>{this.props.totalCost}</p>
           {this.approve()}
         </div>
       </div>

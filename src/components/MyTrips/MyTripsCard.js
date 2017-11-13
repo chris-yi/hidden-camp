@@ -34,7 +34,7 @@ class MyTripsCard extends Component {
           <p>
             {this.props.checkInDate} ~ {this.props.checkOutDate}
           </p>
-          <p>{this.props.totalCost}</p>
+          <br/>
           {this.pendingTrip()}
         </div>
       </div>
